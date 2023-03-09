@@ -91,40 +91,37 @@ main {
 
 .navbar-mobile {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
   flex-direction: column;
   width: 100%;
-  padding: 0.8em;
 }
 
 /* container contains the logo and the navicon*/
 .navbar-mobile > .logo-header {
+  padding: 0.8em 1.8em;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background-color: white;
 }
 
-.navbar-mobile>.logo-header h1,
-.navbar-mobile>.logo-header i.fa.fa-navicon {
-  padding: 0 1.5em 0.5em 1.5em;
-  font-size: calc(0.8em + 3vw);
+.navbar-mobile>.logo-header img.logo {
+  font-size: calc(2em + 4vw);
 }
-
-.navbar-mobile>.logo-header i.fa.fa-navicon {
-  
+.navbar-mobile>.logo-header img.burger {
+  height: calc(1.8em + 3vw);
   cursor: pointer;
 }
 
 .navbar-mobile .nav-items {
   display: flex;
   justify-content: space-between;
-  text-transform: uppercase;
+  background-color: var(--light-greyish);
   font-size: calc(0.5em + 1vw);
+  padding: 1em 0;
 }
 
 .navbar-mobile .nav-items li img {
-  height: 2em;
+  height: calc(1.2em + 3vw);
 }
 
 .nav-items li a {
@@ -143,11 +140,11 @@ main {
 @media screen and (min-width: 768px) { 
   /* suppression des éléments mobile */
   .navbar-mobile { display: none; }
-  .navbar-desktop>.logo-header i.fa.fa-navicon { display: none; }
+  .navbar-desktop>.logo-header img.burger { display: none; }
 
-  .navbar-desktop>.logo-header img,
-  .navbar-desktop>.logo-header i.fa.fa-navicon {
-  padding: 0;
+  .navbar-desktop>.logo-header img.logo,
+  .navbar-desktop>.logo-header img.burger {
+  padding: 0 1.5em;
 }
 
   .navbar-desktop {
@@ -155,17 +152,23 @@ main {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 1em;
+    padding: 0.8em;
     flex-direction: row;
   }
-
+  .navbar-desktop .logo-header {
+    background-color: transparent;
+  }
+  .navbar-desktop .logo-header img.logo {
+    height: calc(1.4em + 3vw);
+  }
   .navbar-desktop .nav-items{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    align-items: center;
+    background-color: transparent;
   }
-
   .navbar-desktop .nav-items li img {
-    height: 20px;
+    height: calc(1em + 1vw);
     border: var(--font-color);
   }
 
