@@ -11,6 +11,19 @@
 
 <body>
     <main class="container">
+        <!-- Posting window-->
+        <div class="post-create">
+            <div class="post-create-pictogram"></div>
+            <div class="post-create-profile-picture"></div>
+            <form action="" class="post-create-form">
+                <textarea data-autoresize name="post-create-textarea" id="post-create-textarea"
+                    placeholder="Quoi de neuf aujourd'hui?"></textarea>
+                <button type="submit">Poster</button>
+            </form>
+
+        </div>
+
+        <!-- Post card-->
         <div class="post-card">
             <div class="profile-picture"></div>
             <div class="post-header">
@@ -29,9 +42,10 @@
                 <img src="./images/heart-logo.png" alt="heart">
                 <p>1</p>
             </div>
-            <form action="" method="get" class="post-form">
+            <form action="" class="post-form">
                 <div class="comment">
-                    <input type="text" name="comment-input" id="comment-input" placeholder="Ecrire un commentaire">
+                    <input type="text" data-autoresize name="comment-input" id="comment-input"
+                        placeholder="Ecrire un commentaire">
                 </div>
             </form>
             <div class="post-comment">
@@ -42,6 +56,8 @@
         </div>
     </main>
 </body>
+<script src="./post.js">
+</script>
 
 </html>
 

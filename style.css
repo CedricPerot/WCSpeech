@@ -58,7 +58,7 @@
     /* Separators */
     --separators: 2px solid var(--light-greyish);
 
-    /* Separators */
+    /* Box shadow */
     --box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
 }
 
@@ -66,6 +66,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    list-style-type: none;
 }
 
 body {
@@ -78,9 +79,10 @@ body {
 
 main {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 2rem;
+    padding: 1rem;
 }
 
 .post-card {
@@ -96,9 +98,10 @@ main {
     gap: 0.8em;
 }
 
-.post-card .profile-picture {
-    width: 100%;
-    height: 100%;
+.post-card .profile-picture,
+.post-create-profile-picture {
+    width: 2em;
+    height: 2em;
     border-radius: 50%;
     background: url('./images/profile-pictures/eloise.jpg');
     background-size: cover;
@@ -151,6 +154,7 @@ h2 {
     display: flex;
     grid-column: 7/8;
     align-items: center;
+    justify-content: flex-end;
 }
 
 .like-count img {
@@ -181,4 +185,49 @@ h2 {
     grid-column: 2/8;
     padding-left: 1.5em;
     margin-top: 1em;
+}
+
+.post-create {
+    background-color: var(--cards-color);
+    width: 100%;
+    border-radius: 1.5rem;
+    box-shadow: var(--box-shadow);
+    padding: 4em 1.2em 2em;
+    font-weight: 100;
+    display: grid;
+    grid-template-columns: 2.4em 1fr 2.4em;
+    grid-template-rows: 1fr;
+    gap: 0.8em;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 2em;
+}
+
+.post-create-pictogram {
+    position: absolute;
+    top: -1.8em;
+    right: -2em;
+    border-radius: 2rem;
+    width: 6em;
+    height: 5em;
+    background-color: var(--main-color);
+}
+
+#post-create-textarea {
+    width: 100%;
+    font-family: 'Cera', sans-serif;
+    font-weight: 100;
+    resize: none;
+    border: none;
+    border-bottom: var(--separators);
+
+}
+
+.post-create button {
+    float: right;
+    padding: .3em 1.5em;
+    border-radius: 1em;
+    border: none;
+    background-color: var(--light-greyish);
+    margin-top: 1.5em;
 }
