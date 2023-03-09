@@ -13,33 +13,34 @@ body {
   display: flex;
   align-items: center;
   flex-direction: column;
-  width: 100vw;
+  width: 100%;
+  margin: 10px; 
 }
 
-.navbar.container {
+.navbar > .container {
   display: grid;
   grid-template: 1fr / 1fr 1fr;
+  width: 100%;
 }
 
-.navbar.container h1, .container i.fa.fa-navicon {
+.navbar > .container h1, .navbar > .container i.fa.fa-navicon {
   padding: 0.5em 1.5em;
   font-size: calc(0.8em + 3vw);
   display: flex;
   align-items: center;
+}
+.navbar > .container h1 {
+  grid-column: 1;
   justify-content: flex-start;
 }
-.navbar.container h1 {
-  grid-column: 1;
-}
-.navbar.container i.fa.fa-navicon {
-  font-size: calc(0.4em + 3vw);
+.navbar > .container i.fa.fa-navicon {
   grid-column: 2;
+  justify-content: flex-end;
   cursor: pointer;
 }
 
 .navbar .nav-items {
   display: flex;
-  position: inherit;
   text-transform: uppercase;
   font-size: calc(0.5em + 1vw);
 }
@@ -56,14 +57,14 @@ body {
 }
 
 @media screen and (min-width: 768px) {
-  .navbar.container {
+  .navbar > .container {
     display: flex;
   }
-  .navbar.container i.fa.fa-navicon{
+  .navbar > .container i.fa.fa-navicon{
     display: none;
   }
-  .navbar.container h1{
-  position: initial;
+  .navbar > .container h1{
+    position: initial;
   }
   .navbar {
     width: 100vw;
