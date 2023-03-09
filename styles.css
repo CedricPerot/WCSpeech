@@ -1,14 +1,88 @@
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  list-style: none;
-}
-body {
-  font-family: "Lato", sans-serif;
-  font-size: 16px;
+/*------ Fonts declaration ------*/
+@font-face {
+  font-family: 'Cera';
+  src: url(./fonts/Cera-regular.otf) format("opentype");
+  font-weight: 300;
+  font-style: normal;
 }
 
+@font-face {
+  font-family: 'Cera';
+  src: url(./fonts/Cera-regular-it.otf) format("opentype");
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Cera';
+  src: url(./fonts/Cera-medium.otf) format("opentype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Cera';
+  src: url(./fonts/Cera-medium-it.otf) format("opentype");
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Cera';
+  src: url(./fonts/Cera-bold.otf) format("opentype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Cera';
+  src: url(./fonts/Cera-bold-it.otf) format("opentype");
+  font-weight: 700;
+  font-style: italic;
+}
+
+
+/*------ Variables declaration ------*/
+
+:root {
+
+  /* colors*/
+  --main-color: rgba(134, 115, 228, 1);
+  --font-color: rgba(47, 43, 66, 1);
+  --greyish: rgba(173, 170, 189, 1);
+  --light-greyish: rgba(238, 236, 245, 1);
+  --gradient-bg: linear-gradient(90deg, rgb(235, 235, 251), rgb(243, 232, 244));
+  --cards-color: white;
+  --like-color: rgb(255, 27, 82);
+
+  /* Separators */
+  --separators: 2px solid var(--light-greyish);
+
+  /* Separators */
+  --box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  color: var(--font-color);
+  background: var(--gradient-bg);
+  height: 100vh;
+  font-size: 16px;
+  font-family: 'Cera', sans-serif;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+ /* header and navbar contain all the element of the navbar*/
 .navbar {
   display: flex;
   align-items: center;
@@ -17,6 +91,7 @@ body {
   margin: 10px; 
 }
 
+/* container contains the logo and the navicon*/
 .navbar > .container {
   display: grid;
   grid-template: 1fr / 1fr 1fr;
