@@ -91,6 +91,7 @@ main {
 
 .navbar-mobile {
   display: flex;
+  justify-content: space-between;
   align-items: center;
   flex-direction: column;
   width: 100%;
@@ -98,19 +99,20 @@ main {
 }
 
 /* container contains the logo and the navicon*/
-.navbar-mobile > .container {
+.navbar-mobile > .logo-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.navbar-mobile>.container h1,
-.navbar-mobile>.container i.fa.fa-navicon {
-  padding: 0 2.5em 0.5em 1.5em;
+.navbar-mobile>.logo-header h1,
+.navbar-mobile>.logo-header i.fa.fa-navicon {
+  padding: 0 1.5em 0.5em 1.5em;
   font-size: calc(0.8em + 3vw);
 }
 
-.navbar-mobile>.container i.fa.fa-navicon {
+.navbar-mobile>.logo-header i.fa.fa-navicon {
+  
   cursor: pointer;
 }
 
@@ -133,18 +135,20 @@ main {
   color: black;
 }
 
-@media screen and (min-width: 768px) {
-  .navbar-mobile {
-    display: none;
-  }
+.navbar-mobile .nav-items li a:hover, .navbar-mobile .nav-items li a.active{
+  border-bottom: 4px solid var(--main-color);
+}
 
-  .navbar-desktop>.container h1,
-  .navbar-desktop>.container i.fa.fa-navicon {
+/* tablettes et au dessus*/
+@media screen and (min-width: 768px) { 
+  /* suppression des éléments mobile */
+  .navbar-mobile { display: none; }
+  .navbar-desktop>.logo-header i.fa.fa-navicon { display: none; }
+
+  .navbar-desktop>.logo-header img,
+  .navbar-desktop>.logo-header i.fa.fa-navicon {
   padding: 0;
 }
-  .navbar-desktop>.container i.fa.fa-navicon {
-    display: none;
-  }
 
   .navbar-desktop {
     width: 100vw;
@@ -155,13 +159,9 @@ main {
     flex-direction: row;
   }
 
-  .navbar-desktop h1 {
-    color: var(--font-color);
-    font-size: 3em;
-  }
-
   .navbar-desktop .nav-items{
     display: flex;
+    justify-content: space-around;
   }
 
   .navbar-desktop .nav-items li img {
