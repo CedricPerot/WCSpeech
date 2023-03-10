@@ -61,7 +61,7 @@
   --box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
 }
 
-* {
+*, *::before, *::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -105,13 +105,47 @@ main {
 }
 
 .navbar-mobile>.logo-header img.logo {
-  font-size: calc(2em + 4vw);
-}
-.navbar-mobile>.logo-header img.burger {
-  height: calc(1.8em + 3vw);
-  cursor: pointer;
+  height: calc(2em + 4vw);
 }
 
+/* menu burger */
+.logo-header > .menu-burger {
+  position: absolute;
+  left: -100vw;
+}
+.menu-burger+label {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  cursor: pointer;
+  height: calc(1px + 1vh);
+  width: calc(2em + 5vw);
+}
+.menu-burger+label span {
+  position: absolute;
+  top: 50%;
+  width: calc(2em + 5vw);
+  height: calc(1px + 1vh);
+  background-color: rgba(47, 43, 66, 1);
+  border-radius: 15px;
+  transition: backgound 10ms 300ms;
+}
+.menu-burger+label span:before, .menu-burger+label span:after {
+  position: absolute;
+  content: '';
+  width: inherit;
+  height: inherit;
+  background-color: inherit;
+  border-radius: inherit;
+  transition: top 300ms 350ms, transform 300ms 50ms;
+}
+.menu-burger+label span:before { top: -20px; }
+.menu-burger+label span:after { top: 20px; }
+.menu-burger:checked+label span {
+  background: unset;
+}
+
+/* icons nav*/
 .navbar-mobile .nav-items {
   display: flex;
   justify-content: space-between;
@@ -121,14 +155,14 @@ main {
 }
 
 .navbar-mobile .nav-items li img {
-  height: calc(1.2em + 3vw);
+  height: calc(1.5em + 4vw);
 }
 
 .nav-items li a {
   padding: 0.8em 2.5em;
   width: 100%;
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 400;
   color: black;
 }
 
@@ -140,7 +174,6 @@ main {
 @media screen and (min-width: 768px) { 
   /* suppression des éléments mobile */
   .navbar-mobile { display: none; }
-  .navbar-desktop>.logo-header img.burger { display: none; }
 
   .navbar-desktop>.logo-header img.logo,
   .navbar-desktop>.logo-header img.burger {
@@ -149,10 +182,11 @@ main {
 
   .navbar-desktop {
     width: 100vw;
+    height: 5em;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0.8em 0 0;
+    padding: 0.8em 0.8em 0 0.8em;
     flex-direction: row;
     background-color: white;
   }
@@ -167,13 +201,22 @@ main {
     justify-content: space-between;
     align-items: center;
     background-color: transparent;
+    height: 100%;
+  }
+  .navbar-desktop .nav-items li {
+    height: 100%;
+    padding: 1.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 4px solid white;
   }
   .navbar-desktop .nav-items li img {
-    height: calc(1em + 1vw);
+    height: calc(1.5em + 1vw);
     border: var(--font-color);
   }
 
-  .navbar-desktop .nav-items li a:hover, .navbar-desktop .nav-items li a.active{
+  .navbar-desktop .nav-items li:hover {
     border-bottom: 4px solid var(--main-color);
   }
 }
