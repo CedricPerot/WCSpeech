@@ -152,8 +152,9 @@ main {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0.8em;
+    padding: 0.8em 0 0;
     flex-direction: row;
+    background-color: white;
   }
   .navbar-desktop .logo-header {
     background-color: transparent;
