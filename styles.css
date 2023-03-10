@@ -109,40 +109,111 @@ main {
 }
 
 /* menu burger */
-.logo-header > .menu-burger {
+.logo-header > #menu-burger {
   position: absolute;
-  left: -100vw;
+  left: -100%; /* to hide the checkbox */
+  opacity: 0;
 }
-.menu-burger+label {
+#menu-burger:checked + .btn-burger > span {
+  transform: rotate(45deg);
+}
+#menu-burger:checked + .btn-burger > span::before {
+  top: 0;
+  transform: rotate(0deg);
+}
+#menu-burger:checked + .btn-burger > span::after {
+  top: 0;
+  transform: rotate(90deg);
+}
+.btn-burger > span, .btn-burger > span::before, .btn-burger > span::after {
+  transition: all 0.2s ease;
+}
+
+#menu-burger+label {
   position: relative;
   display: flex;
   justify-content: flex-end;
   cursor: pointer;
-  height: calc(1px + 1vh);
-  width: calc(2em + 5vw);
+  height: 30px;
+  width: 50px;
 }
-.menu-burger+label span {
+#menu-burger+label span {
   position: absolute;
   top: 50%;
-  width: calc(2em + 5vw);
-  height: calc(1px + 1vh);
-  background-color: rgba(47, 43, 66, 1);
-  border-radius: 15px;
-  transition: backgound 10ms 300ms;
+  width: 100%;
+  height: 3px;
+  background-color: var(--greyish);
+  border-radius: 2px;
 }
-.menu-burger+label span:before, .menu-burger+label span:after {
+#menu-burger+label span:before, #menu-burger+label span:after {
   position: absolute;
   content: '';
   width: inherit;
   height: inherit;
   background-color: inherit;
   border-radius: inherit;
-  transition: top 300ms 350ms, transform 300ms 50ms;
 }
-.menu-burger+label span:before { top: -20px; }
-.menu-burger+label span:after { top: 20px; }
-.menu-burger:checked+label span {
-  background: unset;
+#menu-burger+label span:before { top: -20px; }
+#menu-burger+label span:after { top: 20px; }
+#menu-burger:checked+label span {
+  background: var(--font-color);
+}
+
+.navbar-mobile .burger-container {
+  top: calc(3px + 12vh);
+  right: 0;
+  position: absolute;
+  border-top: 4px solid var(--light-greyish);
+  background-color: white;
+  width: 100vw;
+  height: 50vh;
+  display: block;
+  font-size: calc(0.5em + 1vw);
+  border-radius: 0 0 10% 10%;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+  margin-top: -200%;
+  transition: all 0.3s ease-in-out;
+}
+/* IMPORTANT TO HAVE THIS ONE JUST AFTER THE BURGER-CONTAINER*/
+.navbar-mobile .mobile-menu {
+  margin-top: 0; /* cancel previously set margin-top of the container */
+}
+.navbar-mobile .burger-container .burger-items li { width: 75%; }
+.navbar-mobile .burger-container .burger-items {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  padding-left: 5em;
+}
+.navbar-mobile .burger-container .burger-items li img {
+  height: calc(1.5em + 3vw);
+}
+.navbar-mobile .burger-container .burger-items a, .navbar-mobile .burger-container .burger-items input  {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 2em;
+  font-size: 1.2em;
+}
+.navbar-mobile .burger-container .burger-items input[type="search"] {
+  border-radius: 8em;
+  height: 2.5em;
+  width: 100%;
+  padding: 0.8em 0.8em;
+  border-color: transparent;
+  background-color: var(--light-greyish);
+  transition: all 0.3s cubic-bezier(0, 0, 0.43, 1.49);
+}
+.navbar-mobile .burger-container .burger-items input[type="search"]:focus-within{
+  outline: none;
+  border: 2px solid var(--main-color) ;
+}
+.navbar-mobile .burger-container .burger-items a.active {
+  color: var(--main-color);
+  font-weight: 700;
 }
 
 /* icons nav*/
@@ -162,8 +233,6 @@ main {
   padding: 0.8em 2.5em;
   width: 100%;
   text-decoration: none;
-  font-weight: 400;
-  color: black;
 }
 
 .navbar-mobile .nav-items li a:hover, .navbar-mobile .nav-items li a.active{

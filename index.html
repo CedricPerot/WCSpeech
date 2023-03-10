@@ -14,13 +14,23 @@
         <nav class="navbar-mobile">
             <div class="logo-header">
                 <img class="logo" src="./images/logo-speech-160.png"/> 
-                <input type="checkbox" class="menu-burger">
-                <label for="menu-burger"><span></span></label>
+                <input type="checkbox" id="menu-burger">
+                <label for="menu-burger" class="btn-burger"><span></span></label>
             </div>
+            <!-- HIDDEN MENU -->
+            <div class="burger-container">
+                <ul class="burger-items">
+                    <li><input type="search" placeholder="Recherche..."></li>
+                    <li><a href="#" class="active"><img src="./images/home_icon.svg"/> Accueil</a></li>
+                    <li><a href="#"><img src="./images/bell-icon.svg"/> Notifications</a></li>
+                    <li><a href="#"><img src="./images/user-icon.svg"/>Profil</a></li>
+                    <li><a href="#"><img src="./images/settings.svg"/>Paramètres</a></li>
+                </ul>
+            </div>       
             <ul class="nav-items">
                 <li><a href="#" class="active"><img src="./images/home_icon.svg"/></a></li>
-                <li><a href="#"><img src="./images/user-icon.svg"/></a></li>
                 <li><a href="#"><img src="./images/bell-icon.svg"/></a></li>
+                <li><a href="#"><img src="./images/user-icon.svg"/></a></li>
             </ul>
         </nav>
         <!-- NAVIGATION DESKTOP-->
