@@ -1,0 +1,233 @@
+/*------ Fonts declaration ------*/
+@font-face {
+    font-family: 'Cera';
+    src: url(./fonts/Cera-regular.otf) format("opentype");
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Cera';
+    src: url(./fonts/Cera-regular-it.otf) format("opentype");
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Cera';
+    src: url(./fonts/Cera-medium.otf) format("opentype");
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Cera';
+    src: url(./fonts/Cera-medium-it.otf) format("opentype");
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Cera';
+    src: url(./fonts/Cera-bold.otf) format("opentype");
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Cera';
+    src: url(./fonts/Cera-bold-it.otf) format("opentype");
+    font-weight: 700;
+    font-style: italic;
+}
+
+
+/*------ Variables declaration ------*/
+
+:root {
+
+    /* colors*/
+    --main-color: rgba(134, 115, 228, 1);
+    --font-color: rgba(47, 43, 66, 1);
+    --greyish: rgba(173, 170, 189, 1);
+    --light-greyish: rgba(238, 236, 245, 1);
+    --gradient-bg: linear-gradient(90deg, rgb(235, 235, 251), rgb(243, 232, 244));
+    --cards-color: white;
+    --like-color: rgb(255, 27, 82);
+
+    /* Separators */
+    --separators: 2px solid var(--light-greyish);
+
+    /* Box shadow */
+    --box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style-type: none;
+}
+
+body {
+    color: var(--font-color);
+    background: var(--gradient-bg);
+    height: 100vh;
+    font-size: 16px;
+    font-family: 'Cera', sans-serif;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+.post-card {
+    background-color: var(--cards-color);
+    width: 100%;
+    border-radius: 1.5rem;
+    box-shadow: var(--box-shadow);
+    padding: 2em 1.2em;
+    font-weight: 100;
+    display: grid;
+    grid-template-columns: 2.4em repeat(6, 1fr);
+    grid-template-rows: 2.4em 1fr 1.4em;
+    gap: 0.8em;
+}
+
+.post-card .profile-picture,
+.post-create-profile-picture {
+    width: 2em;
+    height: 2em;
+    border-radius: 50%;
+    background: url('./images/profile-pictures/eloise.jpg');
+    background-size: cover;
+}
+
+.post-header {
+    grid-column: 2/8;
+}
+
+h1 {
+    font-size: 1.2rem;
+}
+
+h2 {
+    font-size: 1rem;
+}
+
+.post-date,
+.like-count,
+.post-buttons {
+    font-size: 0.85rem;
+    color: var(--greyish);
+}
+
+.post-content {
+    grid-column: 2/8;
+    font-size: 0.85em;
+}
+
+.post-buttons {
+    display: flex;
+    grid-column: 2/6;
+    align-items: center;
+}
+
+.post-buttons img {
+    width: 1.1em;
+    margin-right: 0.5em;
+}
+
+.post-buttons p {
+    margin-right: 1.2em;
+}
+
+.like-btn {
+    color: var(--like-color);
+}
+
+.like-count {
+    display: flex;
+    grid-column: 7/8;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.like-count img {
+    width: 1.4em;
+    margin-right: 0.5em;
+}
+
+.post-form {
+    grid-column: 2/8;
+}
+
+.post-form input {
+    width: 100%;
+    border-radius: 2em;
+    padding: 0.5em 1em;
+    border: none;
+    background-color: var(--light-greyish);
+    color: #aca8c6;
+    font-size: 0.8em;
+}
+
+.post-form input::placeholder {
+    color: var(--greyish);
+}
+
+.post-comment {
+    border-left: var(--separators);
+    grid-column: 2/8;
+    padding-left: 1.5em;
+    margin-top: 1em;
+}
+
+.post-create {
+    background-color: var(--cards-color);
+    width: 100%;
+    border-radius: 1.5rem;
+    box-shadow: var(--box-shadow);
+    padding: 4em 1.2em 2em;
+    font-weight: 100;
+    display: grid;
+    grid-template-columns: 2.4em 1fr 2.4em;
+    grid-template-rows: 1fr;
+    gap: 0.8em;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 2em;
+}
+
+.post-create-pictogram {
+    position: absolute;
+    top: -1.8em;
+    right: -2em;
+    border-radius: 2rem;
+    width: 6em;
+    height: 5em;
+    background-color: var(--main-color);
+}
+
+#post-create-textarea {
+    width: 100%;
+    font-family: 'Cera', sans-serif;
+    font-weight: 100;
+    resize: none;
+    border: none;
+    border-bottom: var(--separators);
+
+}
+
+.post-create button {
+    float: right;
+    padding: .3em 1.5em;
+    border-radius: 1em;
+    border: none;
+    background-color: var(--light-greyish);
+    margin-top: 1.5em;
+}
