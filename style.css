@@ -75,15 +75,67 @@ body {
     height: 100vh;
     font-size: 16px;
     font-family: 'Cera', sans-serif;
+    display: flex;
+    justify-content: center;
 }
 
-main {
+.feed-container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     padding: 1rem;
+    max-width: 1280px;
 }
+
+/*------ design post creation card ------*/
+
+.post-create-card {
+    background-color: var(--cards-color);
+    width: 100%;
+    border-radius: 1.5rem;
+    box-shadow: var(--box-shadow);
+    padding: 4em 1.2em 2em;
+    font-weight: 100;
+    display: grid;
+    grid-template-columns: 2.4em 1fr 2.4em;
+    grid-template-rows: 1fr;
+    gap: 0.8em;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 2em;
+}
+
+.post-create-pictogram {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 0 0 0 2rem;
+    width: 4em;
+    height: 3.5em;
+    background-color: var(--main-color);
+}
+
+#post-create-textarea {
+    width: 100%;
+    font-family: 'Cera', sans-serif;
+    font-weight: 100;
+    resize: none;
+    border: none;
+    border-bottom: var(--separators);
+
+}
+
+.post-create-card button {
+    float: right;
+    padding: .3em 1.5em;
+    border-radius: 1em;
+    border: none;
+    background-color: var(--light-greyish);
+    margin-top: 1.5em;
+}
+
+/*------ design post card ------*/
 
 .post-card {
     background-color: var(--cards-color);
@@ -96,6 +148,7 @@ main {
     grid-template-columns: 2.4em repeat(6, 1fr);
     grid-template-rows: 2.4em 1fr 1.4em;
     gap: 0.8em;
+    margin-bottom: 2em;
 }
 
 .post-card .profile-picture,
@@ -187,47 +240,79 @@ h2 {
     margin-top: 1em;
 }
 
-.post-create {
+/*------ design side-card ------*/
+
+.side-card-profile {
     background-color: var(--cards-color);
     width: 100%;
     border-radius: 1.5rem;
     box-shadow: var(--box-shadow);
-    padding: 4em 1.2em 2em;
+    padding: 2em 1.2em;
     font-weight: 100;
-    display: grid;
-    grid-template-columns: 2.4em 1fr 2.4em;
-    grid-template-rows: 1fr;
-    gap: 0.8em;
-    position: relative;
-    overflow: hidden;
-    margin-bottom: 2em;
+    display: flex;
+    align-items: center;
+    margin-bottom: 1em;
 }
 
-.post-create-pictogram {
-    position: absolute;
-    top: -1.8em;
-    right: -2em;
-    border-radius: 2rem;
-    width: 6em;
+.side-card-bio {
+    display: none;
+}
+
+.side-card-picture {
+    margin-right: 1em;
+    border-radius: 50%;
+    width: 5em;
     height: 5em;
+    background: url('./images/profile-pictures/Olive.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.side-card-button {
+    border-radius: 2em;
+    padding: .5em 1.5em;
+    margin-top: .5em;
+    border: none;
     background-color: var(--main-color);
+    color: #ffffff;
 }
 
-#post-create-textarea {
-    width: 100%;
-    font-family: 'Cera', sans-serif;
-    font-weight: 100;
-    resize: none;
-    border: none;
-    border-bottom: var(--separators);
+@media screen and (min-width : 760px) {
+    .feed-container {
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
 
-}
+    .feed {
+        margin-left: .5em;
+    }
 
-.post-create button {
-    float: right;
-    padding: .3em 1.5em;
-    border-radius: 1em;
-    border: none;
-    background-color: var(--light-greyish);
-    margin-top: 1.5em;
+    .side-card-profile {
+        flex-direction: column;
+        margin-right: .5em;
+        min-width: 320px;
+        width: 30%;
+        padding: 3em;
+    }
+
+    .side-card-picture {
+        margin: 0 0 1em 0;
+        width: 10em;
+        height: 10em;
+    }
+
+    .side-card-infos {
+        text-align: center;
+        width: 100%;
+    }
+
+    .side-card-button {
+        width: 100%;
+    }
+
+    .side-card-bio {
+        display: block;
+        margin: 1em 0;
+    }
 }
