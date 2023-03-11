@@ -33,7 +33,8 @@ function autoResizeArea() {
 /** FONCTION AJOUT DE POST */
 
 class post {
-  constructor(first, last, picture, content, date, likeStatus, likeNum) {
+  constructor(id, first, last, picture, content, date, likeStatus, likeNum) {
+    this.id = id;
     this.firstName = first;
     this.lastName = last;
     this.profilePicture = picture;
@@ -44,6 +45,7 @@ class post {
   }
 }
 const post1 = new post(
+  "1",
   "Olive",
   "Gomez",
   "./images/profile-pictures/Olive.jpg",
@@ -52,7 +54,9 @@ const post1 = new post(
   false,
   11
 );
+
 addPost(post1);
+
 function addPost(post) {
   let postCard = document.createElement("div");
   postCard.classList.add("post-card");
@@ -82,3 +86,26 @@ function addPost(post) {
   postContent.innerHTML = `${post.postContent}`;
   postCard.appendChild(postContent);
 }
+
+// class profile{
+//   constructor (id, first, last, picture){
+//     this.id = id;
+//     this.firstName = first;
+//     this.lastName = last;
+//     this.profilePicture = picture;
+//   }
+// }
+
+// class post {
+//   constructor(id, profile, content, date, likeStatus, likeNum) {
+//     this.profile = profile;
+//     this.id = id;
+//     this.firstName = first;
+//     this.lastName = last;
+//     this.profilePicture = picture;
+//     this.postContent = content;
+//     this.postDate = date;
+//     this.likeStatus = likeStatus;
+//     this.likeNumber = likeNum;
+//   }
+// }
