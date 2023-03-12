@@ -74,11 +74,11 @@ body {
     background: var(--gradient-bg);
     font-size: 16px;
     font-family: 'Cera', sans-serif;
-    display: flex;
-    justify-content: center;
+
 }
 
 .feed-container {
+    margin: auto;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -291,6 +291,7 @@ a:hover {
 .profile-container {
     padding: 1em;
     max-width: 1024px;
+    margin: auto;
 }
 
 .profile-card {
@@ -307,7 +308,7 @@ a:hover {
 .profile-card-header {
     height: 14em;
     width: 100%;
-    background: url('./images/background-img.jpg');
+    background: url('./images/background-img-light.jpg');
     background-position: center;
     background-size: cover;
 }
@@ -369,7 +370,8 @@ a:hover {
     justify-content: flex-start;
     align-items: center;
     padding: 1rem;
-    max-width: 1280px;
+    max-width: 1024px;
+    margin: auto;
 }
 
 .notifications-feed {
