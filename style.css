@@ -72,7 +72,6 @@
 body {
     color: var(--font-color);
     background: var(--gradient-bg);
-    height: 100vh;
     font-size: 16px;
     font-family: 'Cera', sans-serif;
     display: flex;
@@ -86,6 +85,23 @@ body {
     align-items: center;
     padding: 1rem;
     max-width: 1280px;
+}
+
+h1 {
+    font-size: 1.2rem;
+}
+
+h2 {
+    font-size: 1rem;
+}
+
+a {
+    text-decoration: none;
+    color: var(--font-color);
+}
+
+a:hover {
+    color: var(--main-color);
 }
 
 /*------ design post creation card ------*/
@@ -152,7 +168,8 @@ body {
 }
 
 .post-card .profile-picture,
-.post-create-profile-picture {
+.post-create-profile-picture,
+.notification-profile-picture {
     width: 2em;
     height: 2em;
     border-radius: 50%;
@@ -162,14 +179,6 @@ body {
 
 .post-header {
     grid-column: 2/8;
-}
-
-h1 {
-    font-size: 1.2rem;
-}
-
-h2 {
-    font-size: 1rem;
 }
 
 .post-date,
@@ -268,16 +277,146 @@ h2 {
     background-position: center;
 }
 
-.side-card-button {
+.side-card-button,
+.profile-card-button {
     border-radius: 2em;
-    padding: .5em 1.5em;
+    padding: .7em 1.5em;
     margin-top: .5em;
     border: none;
     background-color: var(--main-color);
     color: #ffffff;
 }
 
+/*------ Design profile page ------*/
+.profile-container {
+    padding: 1em;
+    max-width: 1024px;
+}
+
+.profile-card {
+    background-color: var(--cards-color);
+    width: 100%;
+    border-radius: 1.5rem;
+    box-shadow: var(--box-shadow);
+    font-weight: 100;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.profile-card-header {
+    height: 14em;
+    width: 100%;
+    background: url('./images/background-img.jpg');
+    background-position: center;
+    background-size: cover;
+}
+
+.profile-card-about {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    position: relative;
+    padding: 2em;
+}
+
+.profile-card-picture {
+    position: absolute;
+    left: calc(50% - 5em);
+    top: -5em;
+    background: url('./images/profile-pictures/Olive.jpg');
+    background-position: center;
+    background-size: cover;
+    border-radius: 50%;
+    margin: 0 auto 1em;
+    width: 10em;
+    height: 10em;
+}
+
+.profile-card-name {
+    margin-top: 3.5em;
+}
+
+.profile-card-button {
+    margin: 1.5em 0 2em;
+    padding: .7em 2em;
+}
+
+.profile-card-highlights {
+    display: flex;
+    flex-direction: column;
+    padding: 0 2em;
+}
+
+.highlight {
+    display: flex;
+    align-items: center;
+    padding: 2em 0;
+    border-top: var(--separators);
+}
+
+.highlight img {
+    margin-right: 1.5em;
+    width: auto;
+}
+
+/*------ design notifications card ------*/
+
+.notifications-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 1rem;
+    max-width: 1280px;
+}
+
+.notifications-feed {
+    width: 100%;
+}
+
+.notifications-card {
+    background-color: var(--cards-color);
+    width: 100%;
+    border-radius: 1.5rem;
+    box-shadow: var(--box-shadow);
+    padding: 2em 1.2em;
+    font-weight: 100;
+    margin-bottom: 2em;
+}
+
+.notifications-card h1 {
+    margin-bottom: 1em;
+}
+
+.notification {
+    border-bottom: var(--separators);
+    padding: 1.5em 0;
+    display: flex;
+    align-items: center;
+}
+
+.notification:last-child {
+    border-bottom: none;
+}
+
+.notification-infos {
+    margin-left: 1em;
+}
+
+.notification-infos span {
+    font-weight: 500;
+}
+
+
+
+
+/*--------------MEDIA QUERIES-------------------*/
+
 @media screen and (min-width : 760px) {
+
+    /* FEED PAGE*/
     .feed-container {
         flex-direction: row;
         justify-content: flex-start;
@@ -314,5 +453,77 @@ h2 {
     .side-card-bio {
         display: block;
         margin: 1em 0;
+    }
+
+    /* PROFILE PAGE */
+    .profile-card-header {
+        height: 18em;
+    }
+
+    .profile-card-about {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+        text-align: left;
+    }
+
+    .profile-card-picture {
+        position: absolute;
+        left: calc(22% - 6em);
+        top: -6em;
+        width: 12em;
+        height: 12em;
+    }
+
+    .profile-card-infos {
+        flex: 2;
+        text-align: center;
+    }
+
+    .profile-card-name {
+        margin-top: 5em;
+    }
+
+    .profile-card-button {
+        margin: 1.5em 0 0;
+    }
+
+    .profile-card-bio {
+        flex: 3;
+    }
+
+    .profile-card-highlights {
+        flex-direction: row;
+        justify-content: space-around;
+        padding: 1em 2em 3em;
+    }
+
+    .highlight {
+        flex-direction: column;
+        text-align: center;
+        width: 100%;
+        padding: 0;
+        border-right: var(--separators);
+        border-top: none;
+    }
+
+    .highlight:last-child {
+        border-right: none;
+
+    }
+
+    .highlight img {
+        margin: 0 0 0.5em 0;
+    }
+
+    /* NOTIFICATIONS PAGE*/
+    .notifications-container {
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+
+    .notifications-feed {
+        margin-left: .5em;
     }
 }
