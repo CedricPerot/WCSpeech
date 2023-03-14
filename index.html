@@ -11,51 +11,50 @@
 
 <body>
     <header>
-        <!--Mobile Navbar-->
-        <nav class="mobile-nav">
-            <div class="top-bar">
-                <a href="#" class="logo-link"><img src="./images/logo.svg" class="logo" alt="logo Speech"></a>
-                <div class="burger-menu">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </div>
+        <!-- NAVIGATION MOBILE-->
+        <nav class="navbar-mobile">
+            <div class="logo-header">
+                <img class="logo" src="./images/logo.svg" />
+                <input type="checkbox" id="menu-burger">
+                <label for="menu-burger" class="btn-burger"><span></span></label>
             </div>
-
-            <ul class="menu-items">
-                <a href="#">
-                    <li><img src="./images/home_icon.svg"></li>
-                </a>
-                <a href="./profile.html">
-                    <li><img src="./images/user-icon.svg"></li>
-                </a>
-                <a href="./notifications.html">
-                    <li><img src="./images/bell-icon.svg"></li>
-                </a>
+            <!-- HIDDEN MENU -->
+            <div class="burger-container">
+                <ul class="burger-items">
+                    <li class="search-mobile">
+                        <img src="./images/search.svg" class="search-icon" />
+                        <input type="search" placeholder="Recherche...">
+                    </li>
+                    <li><a href="#" class="active"><img src="./images/home_icon.svg" /> Accueil</a></li>
+                    <li><a href="#"><img src="./images/bell-icon.svg" /> Notifications</a></li>
+                    <li><a href="#"><img src="./images/user-icon.svg" />Profil</a></li>
+                    <li><a href="#"><img src="./images/settings.svg" />Paramètres</a></li>
+                </ul>
+            </div>
+            <ul class="nav-items-mobile">
+                <li><a href="#" class="active"><img src="./images/home_icon.svg" /></a></li>
+                <li><a href="#"><img src="./images/bell-icon.svg" /></a></li>
+                <li><a href="#"><img src="./images/user-icon.svg" /></a></li>
             </ul>
         </nav>
-        <!--Desktop Navbar-->
-        <nav class="desktop-nav">
-            <a href="#" class="logo-link"><img src="./images/logo.svg" class="logo" alt="logo Speech"></a>
-            <ul class="menu-items">
-                <a href="#">
-                    <li><img src="./images/home_icon.svg"></li>
-                </a>
-                <a href="./profile.html">
-                    <li><img src="./images/user-icon.svg"></li>
-                </a>
-                <a href="./notifications.html">
-                    <li><img src="./images/bell-icon.svg"></li>
-                </a>
-            </ul>
-            <div class="login">
-                <div class="login-picture"></div>
-                <p class="login-name">Olivier Gomez</p>
+        <!-- NAVIGATION DESKTOP-->
+        <nav class="navbar-desktop">
+            <div class="logo-header">
+                <img class="logo" src="./images/logo.svg" />
             </div>
+            <div class="search-bar">
+                <img src="./images/search.svg" class="search-icon" />
+                <input type="search" placeholder="Recherche...">
+            </div>
+            <ul class="nav-items">
+                <li class="active"><a href="#"><img src="./images/home_icon.svg" alt="Accueil" /></a></li>
+                <li class="notifications"><a href="#"><img src="./images/bell-icon.svg" alt="Notifications" /></a></li>
+                <li class="profil"><a href="#"><span></span> Eloïse Brochier</a></li>
+            </ul>
         </nav>
     </header>
-    <main class="feed-container">
 
+    <main class="feed-container">
         <!-- side card profile-->
         <div class="side-card-profile">
             <div class="side-card-picture"></div>
@@ -180,7 +179,7 @@
         </div>
     </main>
 </body>
-<script src="./post.js">
-</script>
+<script src="./post.js"></script>
+<script src="./index.js"></script>
 
 </html>
