@@ -50,6 +50,7 @@
     --main-color: rgba(134, 115, 228, 1);
     --font-color: rgba(47, 43, 66, 1);
     --greyish: rgba(173, 170, 189, 1);
+    --very-light-greyish: rgb(245, 243, 255);
     --light-greyish: rgba(238, 236, 245, 1);
     --gradient-bg: linear-gradient(90deg, rgb(235, 235, 251), rgb(243, 232, 244));
     --cards-color: white;
@@ -98,11 +99,96 @@ h2 {
 a {
     text-decoration: none;
     color: var(--font-color);
+    cursor: pointer;
 }
 
 a:hover {
     color: var(--main-color);
 }
+
+button {
+    cursor: pointer;
+}
+
+/*------ HEADER --------*/
+
+/*Mobile Menu*/
+
+.mobile-nav {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding-bottom: 1em;
+}
+
+.top-bar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25em 2em;
+    background-color: var(--cards-color);
+}
+
+.mobile-nav .logo {
+    height: 2.5em;
+}
+
+.burger-menu {
+    width: 2.5em;
+    height: 1.8em;
+    position: relative;
+}
+
+.bar {
+    background-color: var(--font-color);
+    width: 100%;
+    height: .25em;
+    position: absolute;
+    top: calc(50% - 0.125em);
+    border-radius: 4px;
+}
+
+.bar:first-child {
+    top: 0;
+}
+
+.bar:last-child {
+    top: calc(100% - 0.25em);
+}
+
+.mobile-nav .menu-items {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+
+    background-color: var(--very-light-greyish);
+}
+
+.menu-items a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: .8em 2em;
+    border-bottom: 4px solid var(--very-light-greyish);
+}
+
+.menu-items a:hover {
+    border-bottom: 4px solid var(--main-color);
+}
+
+.mobile-nav .menu-items img {
+    height: 2em;
+}
+
+
+/*Desktop Menu*/
+.desktop-nav {
+    display: none;
+}
+
 
 /*------ design post creation card ------*/
 
@@ -527,5 +613,66 @@ a:hover {
 
     .notifications-feed {
         margin-left: .5em;
+    }
+
+    /* MENU NAVBAR */
+
+    .mobile-nav {
+        display: none;
+    }
+
+    .desktop-nav {
+        background: var(--cards-color);
+        height: 5em;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 2em;
+        margin-bottom: 1em;
+    }
+
+    .desktop-nav .logo {
+        height: 3em;
+    }
+
+    .menu-items {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 100%;
+        min-width: 18em;
+        width: 40%;
+    }
+
+    .menu-items a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+        border-bottom: 4px solid var(--cards-color);
+    }
+
+    .menu-items a:hover {
+        border-bottom: 4px solid var(--main-color);
+    }
+
+    .menu-items img {
+        height: 2em;
+    }
+
+    .login {
+        display: flex;
+        align-items: center;
+    }
+
+    .login-picture {
+        width: 2em;
+        height: 2em;
+        border-radius: 50%;
+        background: url('./images/profile-pictures/eloise.jpg');
+        background-size: cover;
+        margin-right: 1em;
     }
 }
