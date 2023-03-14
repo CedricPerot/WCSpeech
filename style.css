@@ -50,6 +50,7 @@
     --main-color: rgba(134, 115, 228, 1);
     --font-color: rgba(47, 43, 66, 1);
     --greyish: rgba(173, 170, 189, 1);
+    --very-light-greyish: rgb(245, 243, 255);
     --light-greyish: rgba(238, 236, 245, 1);
     --gradient-bg: linear-gradient(90deg, rgb(235, 235, 251), rgb(243, 232, 244));
     --cards-color: white;
@@ -72,18 +73,171 @@
 body {
     color: var(--font-color);
     background: var(--gradient-bg);
-    height: 100vh;
     font-size: 16px;
     font-family: 'Cera', sans-serif;
+
 }
 
-main {
+.feed-container {
+    margin: auto;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     padding: 1rem;
+    max-width: 1280px;
 }
+
+h1 {
+    font-size: 1.2rem;
+}
+
+h2 {
+    font-size: 1rem;
+}
+
+a {
+    text-decoration: none;
+    color: var(--font-color);
+    cursor: pointer;
+}
+
+a:hover {
+    color: var(--main-color);
+}
+
+button {
+    cursor: pointer;
+}
+
+/*------ HEADER --------*/
+
+/*Mobile Menu*/
+
+.mobile-nav {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding-bottom: 1em;
+}
+
+.top-bar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25em 2em;
+    background-color: var(--cards-color);
+}
+
+.mobile-nav .logo {
+    height: 2.5em;
+}
+
+.burger-menu {
+    width: 2.5em;
+    height: 1.8em;
+    position: relative;
+}
+
+.bar {
+    background-color: var(--font-color);
+    width: 100%;
+    height: .25em;
+    position: absolute;
+    top: calc(50% - 0.125em);
+    border-radius: 4px;
+}
+
+.bar:first-child {
+    top: 0;
+}
+
+.bar:last-child {
+    top: calc(100% - 0.25em);
+}
+
+.mobile-nav .menu-items {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+
+    background-color: var(--very-light-greyish);
+}
+
+.menu-items a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: .8em 2em;
+    border-bottom: 4px solid var(--very-light-greyish);
+}
+
+.menu-items a:hover {
+    border-bottom: 4px solid var(--main-color);
+}
+
+.mobile-nav .menu-items img {
+    height: 2em;
+}
+
+
+/*Desktop Menu*/
+.desktop-nav {
+    display: none;
+}
+
+
+/*------ design post creation card ------*/
+
+.post-create-card {
+    background-color: var(--cards-color);
+    width: 100%;
+    border-radius: 1.5rem;
+    box-shadow: var(--box-shadow);
+    padding: 4em 1.2em 2em;
+    font-weight: 100;
+    display: grid;
+    grid-template-columns: 2.4em 1fr 2.4em;
+    grid-template-rows: 1fr;
+    gap: 0.8em;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 2em;
+}
+
+.post-create-pictogram {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 0 0 0 2rem;
+    width: 4em;
+    height: 3.5em;
+    background-color: var(--main-color);
+}
+
+#post-create-textarea {
+    width: 100%;
+    font-family: 'Cera', sans-serif;
+    font-weight: 100;
+    resize: none;
+    border: none;
+    border-bottom: var(--separators);
+
+}
+
+.post-create-card button {
+    float: right;
+    padding: .3em 1.5em;
+    border-radius: 1em;
+    border: none;
+    background-color: var(--light-greyish);
+    margin-top: 1.5em;
+}
+
+/*------ design post card ------*/
 
 .post-card {
     background-color: var(--cards-color);
@@ -96,10 +250,12 @@ main {
     grid-template-columns: 2.4em repeat(6, 1fr);
     grid-template-rows: 2.4em 1fr 1.4em;
     gap: 0.8em;
+    margin-bottom: 2em;
 }
 
 .post-card .profile-picture,
-.post-create-profile-picture {
+.post-create-profile-picture,
+.notification-profile-picture {
     width: 2em;
     height: 2em;
     border-radius: 50%;
@@ -109,14 +265,6 @@ main {
 
 .post-header {
     grid-column: 2/8;
-}
-
-h1 {
-    font-size: 1.2rem;
-}
-
-h2 {
-    font-size: 1rem;
 }
 
 .post-date,
@@ -187,47 +335,344 @@ h2 {
     margin-top: 1em;
 }
 
-.post-create {
+/*------ design side-card ------*/
+
+.side-card-profile {
     background-color: var(--cards-color);
     width: 100%;
     border-radius: 1.5rem;
     box-shadow: var(--box-shadow);
-    padding: 4em 1.2em 2em;
+    padding: 2em 1.2em;
     font-weight: 100;
-    display: grid;
-    grid-template-columns: 2.4em 1fr 2.4em;
-    grid-template-rows: 1fr;
-    gap: 0.8em;
-    position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: 1em;
+}
+
+.side-card-bio {
+    display: none;
+}
+
+.side-card-picture {
+    margin-right: 1em;
+    border-radius: 50%;
+    width: 5em;
+    height: 5em;
+    background: url('./images/profile-pictures/Olive.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.side-card-button,
+.profile-card-button {
+    border-radius: 2em;
+    padding: .7em 1.5em;
+    margin-top: .5em;
+    border: none;
+    background-color: var(--main-color);
+    color: #ffffff;
+}
+
+/*------ Design profile page ------*/
+.profile-container {
+    padding: 1em;
+    max-width: 1024px;
+    margin: auto;
+}
+
+.profile-card {
+    background-color: var(--cards-color);
+    width: 100%;
+    border-radius: 1.5rem;
+    box-shadow: var(--box-shadow);
+    font-weight: 100;
+    display: flex;
+    flex-direction: column;
     overflow: hidden;
+}
+
+.profile-card-header {
+    height: 14em;
+    width: 100%;
+    background: url('./images/background-img-light.jpg');
+    background-position: center;
+    background-size: cover;
+}
+
+.profile-card-about {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    position: relative;
+    padding: 2em;
+}
+
+.profile-card-picture {
+    position: absolute;
+    left: calc(50% - 5em);
+    top: -5em;
+    background: url('./images/profile-pictures/Olive.jpg');
+    background-position: center;
+    background-size: cover;
+    border-radius: 50%;
+    margin: 0 auto 1em;
+    width: 10em;
+    height: 10em;
+}
+
+.profile-card-name {
+    margin-top: 3.5em;
+}
+
+.profile-card-button {
+    margin: 1.5em 0 2em;
+    padding: .7em 2em;
+}
+
+.profile-card-highlights {
+    display: flex;
+    flex-direction: column;
+    padding: 0 2em;
+}
+
+.highlight {
+    display: flex;
+    align-items: center;
+    padding: 2em 0;
+    border-top: var(--separators);
+}
+
+.highlight img {
+    margin-right: 1.5em;
+    width: auto;
+}
+
+/*------ design notifications card ------*/
+
+.notifications-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 1rem;
+    max-width: 1024px;
+    margin: auto;
+}
+
+.notifications-feed {
+    width: 100%;
+}
+
+.notifications-card {
+    background-color: var(--cards-color);
+    width: 100%;
+    border-radius: 1.5rem;
+    box-shadow: var(--box-shadow);
+    padding: 2em 1.2em;
+    font-weight: 100;
     margin-bottom: 2em;
 }
 
-.post-create-pictogram {
-    position: absolute;
-    top: -1.8em;
-    right: -2em;
-    border-radius: 2rem;
-    width: 6em;
-    height: 5em;
-    background-color: var(--main-color);
+.notifications-card h1 {
+    margin-bottom: 1em;
 }
 
-#post-create-textarea {
-    width: 100%;
-    font-family: 'Cera', sans-serif;
-    font-weight: 100;
-    resize: none;
-    border: none;
+.notification {
     border-bottom: var(--separators);
-
+    padding: 1.5em 0;
+    display: flex;
+    align-items: center;
 }
 
-.post-create button {
-    float: right;
-    padding: .3em 1.5em;
-    border-radius: 1em;
-    border: none;
-    background-color: var(--light-greyish);
-    margin-top: 1.5em;
+.notification:last-child {
+    border-bottom: none;
+}
+
+.notification-infos {
+    margin-left: 1em;
+}
+
+.notification-infos span {
+    font-weight: 500;
+}
+
+
+
+
+/*--------------MEDIA QUERIES-------------------*/
+
+@media screen and (min-width : 760px) {
+
+    /* FEED PAGE*/
+    .feed-container {
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+
+    .feed {
+        margin-left: .5em;
+    }
+
+    .side-card-profile {
+        flex-direction: column;
+        margin-right: .5em;
+        min-width: 320px;
+        width: 30%;
+        padding: 3em;
+    }
+
+    .side-card-picture {
+        margin: 0 0 1em 0;
+        width: 10em;
+        height: 10em;
+    }
+
+    .side-card-infos {
+        text-align: center;
+        width: 100%;
+    }
+
+    .side-card-button {
+        width: 100%;
+    }
+
+    .side-card-bio {
+        display: block;
+        margin: 1em 0;
+    }
+
+    /* PROFILE PAGE */
+    .profile-card-header {
+        height: 18em;
+    }
+
+    .profile-card-about {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+        text-align: left;
+    }
+
+    .profile-card-picture {
+        position: absolute;
+        left: calc(22% - 6em);
+        top: -6em;
+        width: 12em;
+        height: 12em;
+    }
+
+    .profile-card-infos {
+        flex: 2;
+        text-align: center;
+    }
+
+    .profile-card-name {
+        margin-top: 5em;
+    }
+
+    .profile-card-button {
+        margin: 1.5em 0 0;
+    }
+
+    .profile-card-bio {
+        flex: 3;
+    }
+
+    .profile-card-highlights {
+        flex-direction: row;
+        justify-content: space-around;
+        padding: 1em 2em 3em;
+    }
+
+    .highlight {
+        flex-direction: column;
+        text-align: center;
+        width: 100%;
+        padding: 0;
+        border-right: var(--separators);
+        border-top: none;
+    }
+
+    .highlight:last-child {
+        border-right: none;
+
+    }
+
+    .highlight img {
+        margin: 0 0 0.5em 0;
+    }
+
+    /* NOTIFICATIONS PAGE*/
+    .notifications-container {
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+
+    .notifications-feed {
+        margin-left: .5em;
+    }
+
+    /* MENU NAVBAR */
+
+    .mobile-nav {
+        display: none;
+    }
+
+    .desktop-nav {
+        background: var(--cards-color);
+        height: 5em;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 2em;
+        margin-bottom: 1em;
+    }
+
+    .desktop-nav .logo {
+        height: 3em;
+    }
+
+    .menu-items {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 100%;
+        min-width: 18em;
+        width: 40%;
+    }
+
+    .menu-items a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+        border-bottom: 4px solid var(--cards-color);
+    }
+
+    .menu-items a:hover {
+        border-bottom: 4px solid var(--main-color);
+    }
+
+    .menu-items img {
+        height: 2em;
+    }
+
+    .login {
+        display: flex;
+        align-items: center;
+    }
+
+    .login-picture {
+        width: 2em;
+        height: 2em;
+        border-radius: 50%;
+        background: url('./images/profile-pictures/eloise.jpg');
+        background-size: cover;
+        margin-right: 1em;
+    }
 }

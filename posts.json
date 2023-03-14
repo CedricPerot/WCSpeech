@@ -1,0 +1,18 @@
+[
+  {
+    "firstName": "Olive",
+    "lastName": "Gomez",
+    "picture": "./images/profile-pictures/Olive.jpg",
+    "content": "j'écris mon premier post pour tester mon objet.",
+    "likeStatus": "false",
+    "likeNumber": "11"
+  },
+  {
+    "firstName": "Eloïse",
+    "lastName": "Brochier",
+    "picture": "./images/profile-pictures/Olive.jpg",
+    "content": "j'écris mon premier post pour tester mon objet.",
+    "likeStatus": "false",
+    "likeNumber": "11"
+  }
+]
