@@ -433,6 +433,7 @@ header {
 
 .like-btn {
     color: var(--like-color);
+    cursor: pointer;
 }
 
 .like-count {
