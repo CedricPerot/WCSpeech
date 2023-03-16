@@ -63,6 +63,7 @@
     --box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
 }
 
+/*------------GENRAL STYLES------------*/
 * {
     margin: 0;
     padding: 0;
@@ -75,17 +76,6 @@ body {
     background: var(--gradient-bg);
     font-size: 16px;
     font-family: 'Cera', sans-serif;
-
-}
-
-.feed-container {
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 1rem;
-    max-width: 1280px;
 }
 
 h1 {
@@ -110,7 +100,8 @@ button {
     cursor: pointer;
 }
 
-/*HEADER NAV*/
+/*------------HEADER NAV------------*/
+
 header {
     margin-bottom: 1.5em;
 }
@@ -327,7 +318,20 @@ header {
     border-bottom: 4px solid var(--main-color);
 }
 
-/*------ design post creation card ------*/
+
+/*------ FEED PAGE ------*/
+
+.feed-container {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 1rem;
+    max-width: 1280px;
+}
+
+/* Post creation card */
 
 .post-create-card {
     background-color: var(--cards-color);
@@ -374,7 +378,7 @@ header {
     margin-top: 1.5em;
 }
 
-/*------ design post card ------*/
+/* Post card */
 
 .post-card {
     background-color: var(--cards-color);
@@ -396,7 +400,7 @@ header {
     width: 2em;
     height: 2em;
     border-radius: 50%;
-    background: url('./images/profile-pictures/eloise.jpg');
+    background: url('./images/profile-pictures/Olive.jpg');
     background-size: cover;
 }
 
@@ -433,6 +437,10 @@ header {
 
 .like-btn {
     color: var(--like-color);
+    cursor: pointer;
+}
+
+.share-btn {
     cursor: pointer;
 }
 
@@ -473,7 +481,7 @@ header {
     margin-top: 1em;
 }
 
-/*------ design side-card ------*/
+/* Side-card */
 
 .side-card-profile {
     background-color: var(--cards-color);
@@ -511,7 +519,8 @@ header {
     color: #ffffff;
 }
 
-/*------ Design profile page ------*/
+/*------  PROFILE PAGE  ------*/
+
 .profile-container {
     padding: 1em;
     max-width: 1024px;
@@ -585,7 +594,7 @@ header {
     width: auto;
 }
 
-/*------ design notifications card ------*/
+/*------ NOTIFICATIONS PAGE ------*/
 
 .notifications-container {
     width: 100%;
@@ -634,7 +643,6 @@ header {
 .notification-infos span {
     font-weight: 500;
 }
-
 
 
 
@@ -852,9 +860,10 @@ header {
         width: calc(2em + 1vw);
         border: 2px solid var(--font-color);
         border-radius: 50%;
-        background: url('./images/profile-pictures/Ceric.jpg');
+        background: url('./images/profile-pictures/Olive.jpg');
         background-position: center;
         background-size: cover;
+
         /*round profile picture*/
     }
 

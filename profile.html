@@ -11,53 +11,52 @@
 
 <body>
     <header>
-        <!--Mobile Navbar-->
-        <nav class="mobile-nav">
-            <div class="top-bar">
-                <a href="#" class="logo-link"><img src="./images/logo.svg" class="logo" alt="logo Speech"></a>
-                <div class="burger-menu">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </div>
+        <!-- NAVIGATION MOBILE-->
+        <nav class="navbar-mobile">
+            <div class="logo-header">
+                <img class="logo" src="./images/logo.svg" />
+                <input type="checkbox" id="menu-burger">
+                <label for="menu-burger" class="btn-burger"><span></span></label>
             </div>
-
-            <ul class="menu-items">
-                <a href="./index.html">
-                    <li><img src="./images/home_icon.svg"></li>
-                </a>
-                <a href="#">
-                    <li><img src="./images/user-icon.svg"></li>
-                </a>
-                <a href="./notifications.html">
-                    <li><img src="./images/bell-icon.svg"></li>
-                </a>
+            <!-- HIDDEN MENU -->
+            <div class="burger-container">
+                <ul class="burger-items">
+                    <li class="search-mobile">
+                        <img src="./images/search.svg" class="search-icon" />
+                        <input type="search" placeholder="Recherche...">
+                    </li>
+                    <li><a href="#" class="active"><img src="./images/home_icon.svg" /> Accueil</a></li>
+                    <li><a href="#"><img src="./images/bell-icon.svg" /> Notifications</a></li>
+                    <li><a href="#"><img src="./images/user-icon.svg" />Profil</a></li>
+                    <li><a href="#"><img src="./images/settings.svg" />Paramètres</a></li>
+                </ul>
+            </div>
+            <ul class="nav-items-mobile">
+                <li><a href="#" class="active"><img src="./images/home_icon.svg" /></a></li>
+                <li><a href="#"><img src="./images/bell-icon.svg" /></a></li>
+                <li><a href="#"><img src="./images/user-icon.svg" /></a></li>
             </ul>
         </nav>
-        <!--Desktop Navbar-->
-        <nav class="desktop-nav">
-            <a href="#" class="logo-link"><img src="./images/logo.svg" class="logo" alt="logo Speech"></a>
-            <ul class="menu-items">
-                <a href="./index.html">
-                    <li><img src="./images/home_icon.svg"></li>
-                </a>
-                <a href="#">
-                    <li><img src="./images/user-icon.svg"></li>
-                </a>
-                <a href="./notifications.html">
-                    <li><img src="./images/bell-icon.svg"></li>
-                </a>
-            </ul>
-            <div class="login">
-                <div class="login-picture"></div>
-                <p class="login-name">Olivier Gomez</p>
+        <!-- NAVIGATION DESKTOP-->
+        <nav class="navbar-desktop">
+            <div class="logo-header">
+                <img class="logo" src="./images/logo.svg" />
             </div>
+            <div class="search-bar">
+                <img src="./images/search.svg" class="search-icon" />
+                <input type="search" placeholder="Recherche...">
+            </div>
+            <ul class="nav-items">
+                <li class="active"><a href="#"><img src="./images/home_icon.svg" alt="Accueil" /></a></li>
+                <li class="notifications"><a href="#"><img src="./images/bell-icon.svg" alt="Notifications" /></a></li>
+                <li class="profil"><a href="#"><span></span> Olivier Gomez</a></li>
+            </ul>
         </nav>
     </header>
     <main class="profile-container">
         <div class="profile-card">
-            <div class="profile-card-header"></div>
-            <div class="profile-card-about">
+            <section class="profile-card-header"></section>
+            <section class="profile-card-about">
                 <div class="profile-card-infos">
                     <div class="profile-card-picture"></div>
                     <h1 class="profile-card-name">Olivier Gomez</h1>
@@ -71,8 +70,8 @@
                     aliquam
                     erat volutpat, meting ipsum dolor sit amet.
                 </p>
-            </div>
-            <div class="profile-card-highlights">
+            </section>
+            <section class="profile-card-highlights">
                 <div class="job highlight">
                     <img src="./images/picto-work.png" alt="work suitcase">
                     <p><span>Travail chez</span><br>Wild Code School</p>
@@ -85,10 +84,11 @@
                     <img src="./images/picto-home.png" alt="House">
                     <p><span>Habite à</span><br>Anglet</p>
                 </div>
-            </div>
+            </section>
         </div>
+        div.
     </main>
-    <script src=""></script>
+    <script src="./profile.js"></script>
 </body>
 
 </html>
