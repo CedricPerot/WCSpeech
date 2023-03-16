@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speech - Home</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <header>
+        <!-- NAVIGATION MOBILE-->
+        <nav class="navbar-mobile">
+            <div class="logo-header">
+                <img class="logo" src="./images/logo.svg" />
+                <input type="checkbox" id="menu-burger">
+                <label for="menu-burger" class="btn-burger"><span></span></label>
+            </div>
+            <!-- HIDDEN MENU -->
+            <div class="burger-container">
+                <ul class="burger-items">
+                    <li class="search-mobile">
+                        <img src="./images/search.svg" class="search-icon" />
+                        <input type="search" placeholder="Recherche...">
+                    </li>
+                    <li><a href="#" class="active"><img src="./images/home_icon.svg" /> Accueil</a></li>
+                    <li><a href="#"><img src="./images/bell-icon.svg" /> Notifications</a></li>
+                    <li><a href="#"><img src="./images/user-icon.svg" />Profil</a></li>
+                    <li><a href="#"><img src="./images/settings.svg" />Paramètres</a></li>
+                </ul>
+            </div>
+            <ul class="nav-items-mobile">
+                <li><a href="#" class="active"><img src="./images/home_icon.svg" /></a></li>
+                <li><a href="#"><img src="./images/bell-icon.svg" /></a></li>
+                <li><a href="#"><img src="./images/user-icon.svg" /></a></li>
+            </ul>
+        </nav>
+        <!-- NAVIGATION DESKTOP-->
+        <nav class="navbar-desktop">
+            <div class="logo-header">
+                <img class="logo" src="./images/logo.svg" />
+            </div>
+            <div class="search-bar">
+                <img src="./images/search.svg" class="search-icon" />
+                <input type="search" placeholder="Recherche...">
+            </div>
+            <ul class="nav-items">
+                <li class="active"><a href="#"><img src="./images/home_icon.svg" alt="Accueil" /></a></li>
+                <li class="notifications"><a href="#"><img src="./images/bell-icon.svg" alt="Notifications" /></a></li>
+                <li class="profil"><a href="#"><span></span> Olivier Gomez</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- side card profile-->
+    <main class="notifications-container">
+
+        <div class="side-card-profile">
+            <div class="side-card-picture"></div>
+            <div class="side-card-infos">
+                <h1 class="side-card-name">Olivier Gomez</h1>
+                <p class="side-card-bio">Lorem ipsum dolor sit amet consectetur adipisicing elit.accusantium iste
+                    tempora id
+                    eligendi odit assumenda voluptatum aliquam.</p>
+                <a href="./profile.html"><button class="side-card-button">Accéder à mon profil</button></a>
+            </div>
+        </div>
+        <div class="notifications-feed">
+            <!-- Notifications card-->
+            <div class="notifications-card">
+                <h1>Notifications</h1>
+                <div class="notification">
+                    <div class="notification-profile-picture"></div>
+                    <div class="notification-infos">
+                        <a href="">
+                            <p class="notification-text"><span class="notification-name">Cédric Perot</span> a commenté
+                                votre publication</p>
+                            <p class="notification-date">le 16 février 2023</p>
+                        </a>
+                    </div>
+                </div>
+                <div class="notification">
+                    <div class="notification-profile-picture"></div>
+                    <div class="notification-infos">
+                        <a href="">
+                            <p class="notification-text"><span class="notification-name">Cédric Perot</span> a commenté
+                                votre publication</p>
+                            <p class="notification-date">le 16 février 2023</p>
+                        </a>
+                    </div>
+                </div>
+                <div class="notification">
+                    <div class="notification-profile-picture"></div>
+                    <div class="notification-infos">
+                        <a href="">
+                            <p class="notification-text"><span class="notification-name">Cédric Perot</span> a commenté
+                                votre publication</p>
+                            <p class="notification-date">le 16 février 2023</p>
+                        </a>
+                    </div>
+                </div>
+                <div class="notification">
+                    <div class="notification-profile-picture"></div>
+                    <div class="notification-infos">
+                        <a href="">
+                            <p class="notification-text"><span class="notification-name">Cédric Perot</span> a commenté
+                                votre publication</p>
+                            <p class="notification-date">le 16 février 2023</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+    </main>
+</body>
+
+</html>
