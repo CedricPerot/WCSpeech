@@ -64,7 +64,10 @@
 }
 
 /*------------GENRAL STYLES------------*/
-* {
+
+*,
+*::before,
+*::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -103,7 +106,8 @@ button {
 /*------------HEADER NAV------------*/
 
 header {
-    margin-bottom: 1.5em;
+    width: 100vw;
+    z-index: 1000;
 }
 
 .navbar-desktop {
@@ -133,76 +137,43 @@ header {
 }
 
 /* menu burger */
-.logo-header>#menu-burger {
-    position: absolute;
-    left: -100%;
-    /* to hide the checkbox */
+
+.navbar-mobile .logo-header #menu-burger {
+    position: relative;
+    cursor: pointer;
+    height: 30px;
+    width: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.navbar-mobile .logo-header #menu-burger .line {
+    width: 100%;
+    height: 3px;
+    background-color: var(--greyish);
+    display: block;
+    border-radius: 2px;
+    transition: all 0.5s ease;
+}
+
+/* when open menu is open*/
+.navbar-mobile .logo-header .mobile-menu .line1 {
+    transform: translate(0px) rotateZ(-45deg) scaleX(1);
+}
+
+.navbar-mobile .logo-header .mobile-menu .line3 {
+    transform: translate(0px, -20px) rotateZ(45deg) scaleX(1);
+}
+
+.navbar-mobile .logo-header .mobile-menu .line2 {
+    transform: translate(0px, -10px) rotate(45deg);
     opacity: 0;
 }
 
-#menu-burger:checked+.btn-burger>span {
-    transform: rotate(45deg);
-}
-
-#menu-burger:checked+.btn-burger>span::before {
-    top: 0;
-    transform: rotate(0deg);
-}
-
-#menu-burger:checked+.btn-burger>span::after {
-    top: 0;
-    transform: rotate(90deg);
-}
-
-.btn-burger>span,
-.btn-burger>span::before,
-.btn-burger>span::after {
-    transition: all 0.2s ease-in;
-}
-
-#menu-burger+label {
-    position: relative;
-    display: flex;
-    justify-content: flex-end;
-    cursor: pointer;
-    height: 25px;
-    width: 30px;
-}
-
-#menu-burger+label span {
-    position: absolute;
-    top: 50%;
-    width: 100%;
-    height: 2px;
-    background-color: var(--greyish);
-    border-radius: 2px;
-}
-
-#menu-burger+label span:before,
-#menu-burger+label span:after {
-    position: absolute;
-    content: '';
-    width: inherit;
-    height: inherit;
-    background-color: inherit;
-    border-radius: inherit;
-}
-
-#menu-burger+label span:before {
-    top: -12px;
-}
-
-#menu-burger+label span:after {
-    top: 12px;
-}
-
-#menu-burger:checked+label span {
-    background: var(--font-color);
-}
 
 /* hidden menu*/
 .navbar-mobile .burger-container {
-    top: calc(4.8em + 3vh);
     right: 0;
     position: absolute;
     border-top: 3px solid var(--light-greyish);
@@ -213,17 +184,15 @@ header {
     font-size: calc(0.5em + 1vw);
     border-radius: 0 0 10% 10%;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
-    margin-top: -200%;
-    transition: all 0.3s ease-in-out;
-}
-
-.burger-container {
+    transform: translateY(-150%);
+    transition: transform 0.5s ease-in-out;
     z-index: 100;
 }
 
 /* IMPORTANT TO HAVE THIS ONE JUST AFTER THE BURGER-CONTAINER*/
 .navbar-mobile .mobile-menu {
-    margin-top: 0;
+    transform: translateY(30%);
+    z-index: 100;
 }
 
 /* cancel previously set margin-top of the container */
@@ -255,6 +224,7 @@ header {
     font-size: 1.2em;
 }
 
+/*search bar in the menu burger*/
 .navbar-mobile .burger-container .burger-items input[type="search"] {
     border-radius: 8em;
     height: 2.5em;
@@ -265,7 +235,6 @@ header {
     transition: all 0.3s cubic-bezier(0, 0, 0.43, 1.49);
 }
 
-/*search bar in the menu burger*/
 .navbar-mobile .burger-container .burger-items .search-mobile {
     display: flex;
     justify-content: flex-start;
@@ -287,20 +256,27 @@ header {
     color: var(--font-color);
 }
 
+/* icons nav*/
 .navbar-mobile .burger-container .burger-items a.active,
 .navbar-mobile .burger-container .burger-items a:hover {
     color: var(--main-color);
     font-weight: 700;
 }
 
-
-/* icons nav*/
 .navbar-mobile .nav-items-mobile {
+    width: 100%;
     display: flex;
-    justify-content: space-between;
-    background-color: var(--very-light-greyish);
+    justify-content: space-around;
+    background-color: var(--light-greyish);
     font-size: calc(0.5em + 1vw);
-    padding: 1em 0;
+}
+
+.navbar-mobile .nav-items-mobile li {
+    width: calc(100% / 3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 .navbar-mobile .nav-items-mobile li img {
@@ -311,6 +287,7 @@ header {
     padding: 0.8em 2.5em;
     width: 100%;
     text-decoration: none;
+    border-bottom: 4px solid var(--light-greyish);
 }
 
 .navbar-mobile .nav-items-mobile li a:hover,
@@ -394,14 +371,23 @@ header {
     margin-bottom: 2em;
 }
 
-.post-card .profile-picture,
 .post-create-profile-picture,
-.notification-profile-picture {
+.post-card .profile-picture {
     width: 2em;
     height: 2em;
     border-radius: 50%;
     background: url('./images/profile-pictures/Olive.jpg');
     background-size: cover;
+    background-position: center;
+}
+
+.notification-profile-picture {
+    width: 2em;
+    height: 2em;
+    border-radius: 50%;
+    background: url('./images/profile-pictures/Ceric.jpg');
+    background-size: cover;
+    background-position: center;
 }
 
 .post-header {
@@ -867,7 +853,6 @@ input[type="submit"] {
 
 }
 
-
 /* tablettes et au dessus*/
 @media screen and (min-width: 992px) {
 
@@ -877,12 +862,13 @@ input[type="submit"] {
     }
 
     .navbar-desktop {
+        z-index: 100;
         width: 100vw;
         height: 6.5em;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 0.8em 2em 0 2em;
+        padding: 0.8em 0 0 2em;
         flex-direction: row;
         background-color: white;
     }
@@ -939,13 +925,13 @@ input[type="submit"] {
     /*items of the nav*/
     .navbar-desktop .nav-items {
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
         align-items: center;
         height: 100%;
         width: 37em;
     }
 
-    .navbar-desktop .nav-items li {
+    .navbar-desktop .nav-items a.desk-icons {
         height: 100%;
         padding: 1.5em;
         display: flex;
@@ -954,37 +940,96 @@ input[type="submit"] {
         border-bottom: 4px solid white;
     }
 
-    .navbar-desktop .nav-items li img {
+    .navbar-desktop .nav-items a img {
         height: calc(1em + 1vw);
         border: var(--font-color);
     }
 
-    .navbar-desktop .nav-items li.profil span {
-        height: calc(2em + 1vw);
-        width: calc(2em + 1vw);
-        border: 2px solid var(--font-color);
-        border-radius: 50%;
-        background: url('./images/profile-pictures/Olive.jpg');
-        background-position: center;
-        background-size: cover;
+    /* .navbar-desktop .desk-menu {
+        border-bottom: 4px solid white;
+    } */
 
-        /*round profile picture*/
-    }
-
-    .navbar-desktop .nav-items li.profil a {
+    .navbar-desktop .desk-menu .profil-img {
+        width: 100%;
+        padding: 1.5em 4em 1.5em 1.5em;
         display: flex;
         justify-content: center;
         align-items: center;
-        gap: 1em;
-        text-decoration: none;
+        flex-direction: row;
+        gap: 1.2em;
+        cursor: pointer;
+
     }
 
-    .navbar-desktop .nav-items li:hover,
-    .navbar-desktop .nav-items li.active {
+    .desk-menu .profil-img label {
+        cursor: pointer;
+    }
+
+
+    .navbar-desktop .desk-menu .profil-img img {
+        height: calc(2em + 1vh);
+        border: 2px solid var(--font-color);
+        border-radius: 50%;
+        /*round profile picture*/
+    }
+
+    .navbar-desktop .desk-container {
+        z-index: 100;
+        right: 0;
+        position: fixed;
+        background-color: white;
+        width: 10em;
+        height: 100vh;
+        display: flex;
+        font-size: calc(0.5em + 1vw);
+        border-radius: 0 0 10px 10px;
+        transform: translateX(150%);
+        transition: transform 0.5s ease-in-out;
+
+    }
+
+    /* IMPORTANT TO HAVE THIS ONE JUST AFTER THE BURGER-CONTAINER*/
+    .navbar-desktop .desktop-menu {
+        z-index: 100;
+        transform: translate(0%);
+    }
+
+    /* cancel previously set margin-top of the container */
+
+    .navbar-desktop .desk-container .desk-items li {
+        width: 75%;
+    }
+
+    .navbar-desktop .desk-container .desk-items {
+        height: 60%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: flex-start;
+        padding-left: 1em;
+    }
+
+    .navbar-desktop .desk-container .desk-items li img {
+        height: calc(0.8em + 1vw);
+    }
+
+    .navbar-desktop .desk-container .desk-items a {
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 2em;
+        font-size: 0.8em;
+    }
+
+    .navbar-desktop .nav-items a.desk-icon:hover,
+    .navbar-desktop .nav-items a.active {
         border-bottom: 4px solid var(--main-color);
     }
-}
 
-.navbar-desktop .nav-items li:hover {
-    transform: scale(1.05);
+    .navbar-desktop .nav-items a.hidden-icons:hover,
+    .navbar-desktop .nav-items a.hidden-icons.active {
+        color: var(--main-color);
+        font-weight: 700;
+    }
 }

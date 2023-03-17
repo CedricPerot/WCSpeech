@@ -14,9 +14,12 @@
         <!-- NAVIGATION MOBILE-->
         <nav class="navbar-mobile">
             <div class="logo-header">
-                <img class="logo" src="./images/logo.svg" />
-                <input type="checkbox" id="menu-burger">
-                <label for="menu-burger" class="btn-burger"><span></span></label>
+                <a href="./index.html" class="home-link"><img class="logo" src="./images/logo.svg" /></a>
+                <div id="menu-burger">
+                    <span class="line line1"></span>
+                    <span class="line line2"></span>
+                    <span class="line line3"></span>
+                </div>
             </div>
             <!-- HIDDEN MENU -->
             <div class="burger-container">
@@ -25,32 +28,52 @@
                         <img src="./images/search.svg" class="search-icon" />
                         <input type="search" placeholder="Recherche...">
                     </li>
-                    <li><a href="#" class="active"><img src="./images/home_icon.svg" /> Accueil</a></li>
-                    <li><a href="#"><img src="./images/bell-icon.svg" /> Notifications</a></li>
-                    <li><a href="#"><img src="./images/user-icon.svg" />Profil</a></li>
-                    <li><a href="#"><img src="./images/settings.svg" />Paramètres</a></li>
+                    <li><a href="#" class="hidden-icons"><img src="./images/home_icon.svg" /> Accueil</a></li>
+                    <li><a href="#" class="hidden-icons"><img src="./images/bell-icon.svg" /> Notifications</a></li>
+                    <li><a href="#" class="hidden-icons"><img src="./images/user-icon.svg" />Profil</a></li>
+                    <li><a href="#" class="hidden-icons"><img src="./images/settings.svg" />Paramètres</a></li>
                 </ul>
             </div>
+            <!-- ALWAYS DISPLAYED ICONS -->
             <ul class="nav-items-mobile">
-                <li><a href="#" class="active"><img src="./images/home_icon.svg" /></a></li>
-                <li><a href="#"><img src="./images/bell-icon.svg" /></a></li>
-                <li><a href="#"><img src="./images/user-icon.svg" /></a></li>
+                <li><a href="./index.html" class="icons"><img src="./images/home_icon.svg" /></a></li>
+                <li><a href="./notifications.html" class="icons"><img src="./images/bell-icon.svg" /></a></li>
+                <li><a href="#" class="icons active"><img src="./images/user-icon.svg" /></a></li>
             </ul>
         </nav>
         <!-- NAVIGATION DESKTOP-->
         <nav class="navbar-desktop">
             <div class="logo-header">
-                <img class="logo" src="./images/logo.svg" />
+                <a href="./index.html" class="home-link"><img class="logo" src="./images/logo.svg" /></a>
             </div>
             <div class="search-bar">
                 <img src="./images/search.svg" class="search-icon" />
                 <input type="search" placeholder="Recherche...">
             </div>
-            <ul class="nav-items">
-                <li class="active"><a href="#"><img src="./images/home_icon.svg" alt="Accueil" /></a></li>
-                <li class="notifications"><a href="#"><img src="./images/bell-icon.svg" alt="Notifications" /></a></li>
-                <li class="profil"><a href="#"><span></span> Olivier Gomez</a></li>
-            </ul>
+            <div class="nav-items">
+                <a class="desk-icons" href="./index.html"><img src="./images/home_icon.svg" alt="Accueil" /></a>
+                <a class="desk-icons" href="./notifications.html"><img src="./images/bell-icon.svg"
+                        alt="Notifications" /></a>
+                <div id="profile-menu" class="desk-menu">
+                    <div class="profil-img"><img src="./images/profile-pictures/Olive.jpg" alt="Profil" />
+                        <label>Olive Gomez</label>
+                    </div>
+                    <div class="desk-container">
+                        <ul class="desk-items">
+                            <li><a href="./index.html" class="hidden-icons"><img src="./images/home_icon.svg" />
+                                    Accueil</a></li>
+                            <li><a href="./notifications.html" class="hidden-icons"><img src="./images/bell-icon.svg" />
+                                    Notifications</a>
+                            </li>
+                            <li><a href="#" class="hidden-icons"><img src="./images/user-icon.svg" />Profil</a>
+                            </li>
+                            <li><a href="#" class="hidden-icons"><img src="./images/settings.svg" />Paramètres</a></li>
+                            <li><a href="#" class="hidden-icons"><img src="./images/sign-out-alt.svg" />Déconnexion</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </nav>
     </header>
     <main class="profile-container">
