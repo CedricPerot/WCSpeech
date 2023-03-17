@@ -1,59 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Speech - Home</title>
+    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="./style.css">
 </head>
-
 <body>
     <header>
         <!-- NAVIGATION MOBILE-->
         <nav class="navbar-mobile">
             <div class="logo-header">
-                <img class="logo" src="./images/logo.svg" />
-                <input type="checkbox" id="menu-burger">
-                <label for="menu-burger" class="btn-burger"><span></span></label>
+                <img class="logo" src="./images/logo.svg" /> 
+                <div id="menu-burger">
+                    <span class="line line1"></span>
+                    <span class="line line2"></span>
+                    <span class="line line3"></span>
+                </div>
             </div>
             <!-- HIDDEN MENU -->
             <div class="burger-container">
                 <ul class="burger-items">
                     <li class="search-mobile">
-                        <img src="./images/search.svg" class="search-icon" />
+                        <img src="./images/search.svg" class="search-icon"/>
                         <input type="search" placeholder="Recherche...">
                     </li>
-                    <li><a href="#" class="active"><img src="./images/home_icon.svg" /> Accueil</a></li>
-                    <li><a href="#"><img src="./images/bell-icon.svg" /> Notifications</a></li>
-                    <li><a href="#"><img src="./images/user-icon.svg" />Profil</a></li>
-                    <li><a href="#"><img src="./images/settings.svg" />Paramètres</a></li>
+                    <li><a href="#" class="hidden-icons"><img src="./images/home_icon.svg"/> Accueil</a></li>
+                    <li><a href="#" class="hidden-icons"><img src="./images/bell-icon.svg"/> Notifications</a></li>
+                    <li><a href="#" class="hidden-icons"><img src="./images/user-icon.svg"/>Profil</a></li>
+                    <li><a href="#" class="hidden-icons"><img src="./images/settings.svg"/>Paramètres</a></li>
                 </ul>
             </div>
+            <!-- ALWAYS DISPLAYED ICONS -->       
             <ul class="nav-items-mobile">
-                <li><a href="#" class="active"><img src="./images/home_icon.svg" /></a></li>
-                <li><a href="#"><img src="./images/bell-icon.svg" /></a></li>
-                <li><a href="#"><img src="./images/user-icon.svg" /></a></li>
+                <li><a href="#" class="icons active"><img src="./images/home_icon.svg"/></a></li>
+                <li><a href="#" class="icons"><img src="./images/bell-icon.svg"/></a></li>
+                <li><a href="#" class="icons"><img src="./images/user-icon.svg"/></a></li>
             </ul>
         </nav>
         <!-- NAVIGATION DESKTOP-->
         <nav class="navbar-desktop">
             <div class="logo-header">
-                <img class="logo" src="./images/logo.svg" />
+                <img class="logo" src="./images/logo.svg"/>
             </div>
             <div class="search-bar">
-                <img src="./images/search.svg" class="search-icon" />
+                <img src="./images/search.svg" class="search-icon"/>
                 <input type="search" placeholder="Recherche...">
             </div>
-            <ul class="nav-items">
-                <li class="active"><a href="#"><img src="./images/home_icon.svg" alt="Accueil" /></a></li>
-                <li class="notifications"><a href="#"><img src="./images/bell-icon.svg" alt="Notifications" /></a></li>
-                <li class="profil"><a href="#"><span></span> Olivier Gomez</a></li>
-            </ul>
+            <div class="nav-items">
+                <a class="desk-icons" href="#"><img src="./images/home_icon.svg" alt="Accueil"/></a>
+                <a class="desk-icons" href="#" ><img src="./images/bell-icon.svg" alt="Notifications"/></a>
+                <div id="profile-menu" class="desk-menu">
+                    <div class="profil-img"><img src="./images/urahara.jpg" alt="Profil"/>
+                        <label>Eloïse Brochier</label>
+                    </div>
+                    <div class="desk-container">
+                        <ul class="desk-items">
+                            <li><a href="#" class="hidden-icons"><img src="./images/home_icon.svg"/> Accueil</a></li>
+                            <li><a href="#" class="hidden-icons"><img src="./images/bell-icon.svg"/> Notifications</a></li>
+                            <li><a href="#" class="hidden-icons"><img src="./images/user-icon.svg"/>Profil</a></li>
+                            <li><a href="#" class="hidden-icons"><img src="./images/settings.svg"/>Paramètres</a></li>
+                            <li><a href="#" class="hidden-icons"><img src="./images/sign-out-alt.svg"/>Déconnexion</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </nav>
-    </header>
-
+    </header> 
     <main class="feed-container">
         <!-- side card profile-->
         <div class="side-card-profile">
@@ -84,5 +99,4 @@
     </main>
 </body>
 <script src="./index.js"></script>
-
 </html>
