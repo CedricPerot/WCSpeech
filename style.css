@@ -594,6 +594,99 @@ header {
     width: auto;
 }
 
+/*------  PROFILE PAGE POPUP ------*/
+
+
+
+.modifyPopup {
+    display: none;
+    font-family: 'cera' sans-serif;
+    font-weight: 300;
+    margin: auto;
+    width: 90%;
+    padding: 2em;
+    border-radius: 1em;
+    background-color: var(--cards-color);
+    box-shadow: var(--box-shadow);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+
+.visible {
+    display: block;
+}
+
+.close {
+    text-align: right;
+    padding-bottom: 1em;
+}
+
+.closing-cross {
+    height: 25px;
+}
+
+.modifyForm {
+    width: 100%;
+}
+
+.infos-fields {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 1em;
+    gap: .5em;
+}
+
+.modifyForm input,
+.modifyForm textarea {
+    display: block;
+    padding: .5em 1em;
+    margin-top: .5em;
+    border-radius: 2em;
+    border: none;
+    background-color: var(--light-greyish);
+    resize: none;
+}
+
+.bio-field {
+    width: 100%;
+}
+
+.modifyForm input {
+    border-radius: 2em;
+    width: 100%;
+}
+
+#bio {
+    border-radius: .5em;
+    width: 100%;
+    margin-bottom: 2em;
+}
+
+.main-infos,
+.more-infos {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 1.5em;
+}
+
+.main-infos {
+    margin-bottom: 1em;
+}
+
+input[type="submit"] {
+    background-color: var(--main-color);
+    color: var(--cards-color);
+    margin: auto;
+    width: auto;
+}
+
 /*------ NOTIFICATIONS PAGE ------*/
 
 .notifications-container {
@@ -748,6 +841,17 @@ header {
 
     .highlight img {
         margin: 0 0 0.5em 0;
+    }
+
+    /* PROFILE PAGE POPUP*/
+
+    .modifyPopup {
+        width: 760px;
+    }
+
+    .infos-fields {
+        flex-direction: row;
+        gap: 1.5em;
     }
 
     /* NOTIFICATIONS PAGE*/

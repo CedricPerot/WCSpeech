@@ -73,7 +73,7 @@ const post2 = new post(
   [
     {
       nom: "Olive",
-      commentaire: "C'est bien ce système de commentaire. Bien joué.",
+      commentaire: "Bien joué.",
     },
     {
       nom: "Pablo",
