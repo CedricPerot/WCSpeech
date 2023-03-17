@@ -14,4 +14,3 @@ On fera ensuite les media-queries pour la version tablette / desktop.
 -vous pouvez utiliser les font-style : normal ou italic 
 
 * Les couleurs, le dégradé de fond, les box-shadow et les séparateurs sont paramétrés dans des variables, déclarées au début du css. Jetez-y un oeil (par exemple pour les séparateurs, ils sont déjà paramétrés pour faire 2px d'épaisseurs, solid, de couleur gris clair)
-

@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Speech - Home</title>
-    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="./style.css">
 </head>
+
 <body>
     <header>
         <!-- NAVIGATION MOBILE-->
         <nav class="navbar-mobile">
             <div class="logo-header">
-                <img class="logo" src="./images/logo.svg" /> 
+                <a href="#" class="home-link"><img class="logo" src="./images/logo.svg" /></a>
                 <div id="menu-burger">
                     <span class="line line1"></span>
                     <span class="line line2"></span>
@@ -24,51 +25,58 @@
             <div class="burger-container">
                 <ul class="burger-items">
                     <li class="search-mobile">
-                        <img src="./images/search.svg" class="search-icon"/>
+                        <img src="./images/search.svg" class="search-icon" />
                         <input type="search" placeholder="Recherche...">
                     </li>
-                    <li><a href="#" class="hidden-icons"><img src="./images/home_icon.svg"/> Accueil</a></li>
-                    <li><a href="#" class="hidden-icons"><img src="./images/bell-icon.svg"/> Notifications</a></li>
-                    <li><a href="#" class="hidden-icons"><img src="./images/user-icon.svg"/>Profil</a></li>
-                    <li><a href="#" class="hidden-icons"><img src="./images/settings.svg"/>Paramètres</a></li>
+                    <li><a href="#" class="hidden-icons"><img src="./images/home_icon.svg" /> Accueil</a></li>
+                    <li><a href="./notifications.html" class="hidden-icons"><img src="./images/bell-icon.svg" />
+                            Notifications</a></li>
+                    <li><a href="./profile.html" class="hidden-icons"><img src="./images/user-icon.svg" />Profil</a>
+                    </li>
+                    <li><a href="#" class="hidden-icons"><img src="./images/settings.svg" />Paramètres</a></li>
                 </ul>
             </div>
-            <!-- ALWAYS DISPLAYED ICONS -->       
+            <!-- ALWAYS DISPLAYED ICONS -->
             <ul class="nav-items-mobile">
-                <li><a href="#" class="icons active"><img src="./images/home_icon.svg"/></a></li>
-                <li><a href="#" class="icons"><img src="./images/bell-icon.svg"/></a></li>
-                <li><a href="#" class="icons"><img src="./images/user-icon.svg"/></a></li>
+                <li><a href="#" class="icons active"><img src="./images/home_icon.svg" /></a></li>
+                <li><a href="./notifications.html" class="icons"><img src="./images/bell-icon.svg" /></a></li>
+                <li><a href="./profile.html" class="icons"><img src="./images/user-icon.svg" /></a></li>
             </ul>
         </nav>
         <!-- NAVIGATION DESKTOP-->
         <nav class="navbar-desktop">
             <div class="logo-header">
-                <img class="logo" src="./images/logo.svg"/>
+                <a href="#" class="home-link"><img class="logo" src="./images/logo.svg" /></a>
             </div>
             <div class="search-bar">
-                <img src="./images/search.svg" class="search-icon"/>
+                <img src="./images/search.svg" class="search-icon" />
                 <input type="search" placeholder="Recherche...">
             </div>
             <div class="nav-items">
-                <a class="desk-icons" href="#"><img src="./images/home_icon.svg" alt="Accueil"/></a>
-                <a class="desk-icons" href="#" ><img src="./images/bell-icon.svg" alt="Notifications"/></a>
+                <a class="desk-icons active" href="#"><img src="./images/home_icon.svg" alt="Accueil" /></a>
+                <a class="desk-icons" href="./notifications.html"><img src="./images/bell-icon.svg"
+                        alt="Notifications" /></a>
                 <div id="profile-menu" class="desk-menu">
-                    <div class="profil-img"><img src="./images/urahara.jpg" alt="Profil"/>
-                        <label>Eloïse Brochier</label>
+                    <div class="profil-img"><img src="./images/profile-pictures/Olive.jpg" alt="Profil" />
+                        <label>Olive Gomez</label>
                     </div>
                     <div class="desk-container">
                         <ul class="desk-items">
-                            <li><a href="#" class="hidden-icons"><img src="./images/home_icon.svg"/> Accueil</a></li>
-                            <li><a href="#" class="hidden-icons"><img src="./images/bell-icon.svg"/> Notifications</a></li>
-                            <li><a href="#" class="hidden-icons"><img src="./images/user-icon.svg"/>Profil</a></li>
-                            <li><a href="#" class="hidden-icons"><img src="./images/settings.svg"/>Paramètres</a></li>
-                            <li><a href="#" class="hidden-icons"><img src="./images/sign-out-alt.svg"/>Déconnexion</a></li>
+                            <li><a href="#" class="hidden-icons"><img src="./images/home_icon.svg" /> Accueil</a></li>
+                            <li><a href="./notifications.html" class="hidden-icons"><img src="./images/bell-icon.svg" />
+                                    Notifications</a>
+                            </li>
+                            <li><a href="./profile.html" class="hidden-icons"><img
+                                        src="./images/user-icon.svg" />Profil</a></li>
+                            <li><a href="#" class="hidden-icons"><img src="./images/settings.svg" />Paramètres</a></li>
+                            <li><a href="#" class="hidden-icons"><img src="./images/sign-out-alt.svg" />Déconnexion</a>
+                            </li>
                         </ul>
                     </div>
                 </div>
             </div>
         </nav>
-    </header> 
+    </header>
     <main class="feed-container">
         <!-- side card profile-->
         <div class="side-card-profile">
@@ -83,7 +91,6 @@
         </div>
 
         <div class="feed">
-
             <!-- Create post card-->
             <div class="post-create-card">
                 <div class="post-create-pictogram"></div>
@@ -97,6 +104,7 @@
 
         </div>
     </main>
+    <script src="./index.js"></script>
 </body>
-<script src="./index.js"></script>
+
 </html>
