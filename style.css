@@ -1027,9 +1027,136 @@ input[type="submit"] {
         border-bottom: 4px solid var(--main-color);
     }
 
-    .navbar-desktop .nav-items a.hidden-icons:hover,
+
+.navbar-desktop .nav-items li:hover {
+    transform: scale(1.05);
+}
+.navbar-desktop .nav-items a.hidden-icons:hover,
     .navbar-desktop .nav-items a.hidden-icons.active {
         color: var(--main-color);
         font-weight: 700;
-    }
 }
+
+/*-----------------conteneur global des notifications--------------*/
+.notif-container {
+    background-color: var(--cards-color);
+    width: 100%;
+    min-width: fit-content;
+    max-width: 100vw;
+    max-height: fit-content;
+    border-radius: 1.5rem;
+    padding: 1em 1.2em;
+    box-shadow: var(--box-shadow);
+    font-weight: 100;
+}
+
+.notif-date {
+    padding-top: 5px;
+    font-size: 12px;
+}
+/*---------------conteneur d'une notification------------*/
+.notif-card1 {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: var(--separators);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.notif-card2 {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: var(--separators);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.notif-card3 {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: var(--separators);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.notif-card4 {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: var(--separators);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.notif-card5 {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: var(--separators);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.notif-description {
+    padding-left: 20px;
+}
+
+.profile-picture1 {
+    height: 50px;
+    width: 50px;
+    min-width: 50px;
+    min-height: 50px;
+    background-image: url('./images/profile-pictures/Ceric.jpg');
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+}
+
+.profile-picture2 {
+    height: 50px;
+    width: 50px;
+    min-width: 50px;
+    min-height: 50px;
+    background-image: url('./images/profile-pictures/pablo.jpg');
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+}
+
+.profile-picture3 {
+    height: 50px;
+    width: 50px;
+    min-width: 50px;
+    min-height: 50px;
+    background-image: url('./images/profile-pictures/romain.jpg');
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+}
+
+.profile-picture4 {
+    height: 50px;
+    width: 50px;
+    min-width: 50px;
+    min-height: 50px;
+    background-image: url('./images/profile-pictures/eloise.jpg');
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+}
+
+.profile-picture5 {
+    height: 50px;
+    width: 50px;
+    min-width: 50px;
+    min-height: 50px;
+    background-image: url('./images/profile-pictures/Ceric.jpg');
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+}
+    
+
