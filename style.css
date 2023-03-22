@@ -117,6 +117,9 @@ header {
 /* desktop & mobile navbars are two diffent div*/
 
 .navbar-mobile {
+    position: fixed;
+    top: 0;
+    z-index: 100;
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -300,6 +303,7 @@ header {
 
 .feed-container {
     margin: auto;
+    margin-top: 12em;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -511,6 +515,7 @@ header {
     padding: 1em;
     max-width: 1024px;
     margin: auto;
+    margin-top: 5em;
 }
 
 .profile-card {
@@ -684,6 +689,7 @@ input[type="submit"] {
     padding: 1rem;
     max-width: 1024px;
     margin: auto;
+    margin-top: 12em;
 }
 
 .notifications-feed {
@@ -769,6 +775,7 @@ input[type="submit"] {
     }
 
     /* PROFILE PAGE */
+    .profile-card { margin-top: 7em;}
     .profile-card-header {
         height: 18em;
     }
@@ -856,12 +863,17 @@ input[type="submit"] {
 /* tablettes et au dessus*/
 @media screen and (min-width: 992px) {
 
+    .notifications-container, .feed-container {
+        margin-top: 7em;
+    }
     /* suppression des éléments mobile */
     .navbar-mobile {
         display: none;
     }
 
     .navbar-desktop {
+        position: fixed;
+        top: 0;
         z-index: 100;
         width: 100vw;
         height: 6.5em;
@@ -871,6 +883,7 @@ input[type="submit"] {
         padding: 0.8em 0 0 2em;
         flex-direction: row;
         background-color: white;
+        transition: top 0.3s;
     }
 
     .navbar-desktop>.logo-header img.logo {
@@ -1027,6 +1040,13 @@ input[type="submit"] {
         border-bottom: 4px solid var(--main-color);
     }
 
+    .navbar-desktop .nav-items .desk-container a:hover, 
+    .navbar-desktop .nav-items .desk-container a.active {
+        border-bottom: none;
+        color: var(--main-color);
+        font-weight: 700;
+    }
+
 
 .navbar-desktop .nav-items li:hover {
     transform: scale(1.05);
@@ -1158,5 +1178,4 @@ input[type="submit"] {
     background-position: center;
     border-radius: 50%;
 }
-    
-
+}

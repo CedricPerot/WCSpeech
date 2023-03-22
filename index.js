@@ -14,6 +14,20 @@ const deskContainer = document.querySelector(".desk-container");
 const desktop = document.querySelector(".nav-items");
 const deskIcons = desktop.querySelectorAll(".desk-icons");
 
+// Show/hide desktop nav on scroll
+const deskNavbar = document.querySelector(".navbar-desktop");
+let lastScroll;
+window.addEventListener('scroll', function(){
+  let scrollUp = window.pageYOffset || document.documentElement.scrollTop;
+  if (scrollUp > lastScroll) {
+    deskNavbar.style.top = '-150px'
+  } else {
+    deskNavbar.style.top = '0'
+  }
+  lastScroll = scrollUp
+})
+
+
 //Text-area variables
 const newPost = document.querySelector("textarea");
 
