@@ -2,6 +2,7 @@ import {postList} from "./postList.js"
 import {postCreate} from "./postCreate.js"
 import {likeStatusSwitch} from "./likeStatusSwitch.js"
 import {addNewPost} from "./addNewPost.js"
+import {autoResizeArea} from "./autoResizeArea.js"
 
 /*----------------VARIABLES DECLARATION----------------*/
 
@@ -43,7 +44,6 @@ const postButton = document.querySelector('button[type="submit"]');
 
 /*----------------- EVENTS ----------------*/
 
-console.log(postListCopy);
 // opening the menu by clicking on the burger
 menuBurger.onclick = function () {
   menuContainer.classList.toggle("mobile-menu");
@@ -91,13 +91,14 @@ document.onclick = function clickOutside(e) {
 };
 
 //Text-area auto-resize
-window.addEventListener("load", autoResizeArea);
+window.addEventListener("load", autoResizeArea());
 
 //créer le feed de post 
 postListCopy.forEach(post =>{
   postCreate(post, dataId);
   dataId++;
 });
+dataId=0;
 likeStatusSwitch();
 
 //Create Post
@@ -108,20 +109,21 @@ postButton.addEventListener("click", function(e) {
     postCreate(post, dataId);
     dataId++;
   });
+  dataId=0;
   likeStatusSwitch();
 });
 
 
 
-/*----------------FUNCTIONS----------------*/
+// /*----------------FUNCTIONS----------------*/
 
-//Function Text-area auto-resize
-function autoResizeArea() {
-  document.querySelectorAll("[data-autoresize]").forEach(function (element) {
-    let offset = element.offsetHeight - element.clientHeight; // calcule la hauteur des éventuels border et scroll bar
-    element.addEventListener("input", function (e) {
-      e.target.style.height = "auto";
-      e.target.style.height = e.target.scrollHeight + offset + "px"; // définit la hauteur de l'élément selon la hauteur du contenu (scrollHeight) + les éventuels border et nav bar calculés précédement
-    });
-  });
-}
+// //Function Text-area auto-resize
+// function autoResizeArea() {
+//   document.querySelectorAll("[data-autoresize]").forEach(function (element) {
+//     let offset = element.offsetHeight - element.clientHeight; // calcule la hauteur des éventuels border et scroll bar
+//     element.addEventListener("input", function (e) {
+//       e.target.style.height = "auto";
+//       e.target.style.height = e.target.scrollHeight + offset + "px"; // définit la hauteur de l'élément selon la hauteur du contenu (scrollHeight) + les éventuels border et nav bar calculés précédement
+//     });
+//   });
+// }
