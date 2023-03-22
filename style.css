@@ -587,8 +587,6 @@ header {
 
 /*------  PROFILE PAGE POPUP ------*/
 
-
-
 .modifyPopup {
     display: none;
     font-family: 'cera' sans-serif;
@@ -680,6 +678,7 @@ input[type="submit"] {
 
 /*------ NOTIFICATIONS PAGE ------*/
 
+
 .notifications-container {
     width: 100%;
     display: flex;
@@ -696,39 +695,99 @@ input[type="submit"] {
     width: 100%;
 }
 
-.notifications-card {
+/*.notifications-card {*/
+/*-----------------conteneur global des notifications--------------*/
+.notif-container {
     background-color: var(--cards-color);
     width: 100%;
     border-radius: 1.5rem;
+    padding: 1em 1.2em;
     box-shadow: var(--box-shadow);
-    padding: 2em 1.2em;
     font-weight: 100;
-    margin-bottom: 2em;
 }
 
-.notifications-card h1 {
-    margin-bottom: 1em;
+.notif-date {
+    padding-top: 5px;
+    font-size: 12px;
 }
 
-.notification {
+/*---------------conteneur d'une notification------------*/
+.notif-card {
+    padding-top: 1.2em;
+    padding-bottom: 1.2em;
     border-bottom: var(--separators);
-    padding: 1.5em 0;
     display: flex;
+    flex-direction: row;
     align-items: center;
 }
 
-.notification:last-child {
+.notif-card:last-child {
     border-bottom: none;
 }
 
-.notification-infos {
-    margin-left: 1em;
+.notif-description {
+    padding-left: 1.2em;
 }
 
-.notification-infos span {
-    font-weight: 500;
+.profile-picture1 {
+    height: 3em;
+    width: 3em;
+    background-image: url('./images/profile-pictures/Ceric.jpg');
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
 }
 
+.profile-picture2 {
+    height: 3em;
+    width: 3em;
+    background-image: url('./images/profile-pictures/pablo.jpg');
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+}
+
+.profile-picture3 {
+    height: 3em;
+    width: 3em;
+    background-image: url('./images/profile-pictures/romain.jpg');
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+}
+
+.profile-picture4 {
+    height: 3em;
+    width: 3em;
+    background-image: url('./images/profile-pictures/eloise.jpg');
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+}
+
+.profile-picture5 {
+    height: 3em;
+    width: 3em;
+    background-image: url('./images/profile-pictures/Ceric.jpg');
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+}
+
+.notifications-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 1rem;
+    max-width: 1024px;
+    margin: auto;
+}
+
+.notifications-feed {
+    width: 100%;
+}
 
 
 /*--------------MEDIA QUERIES-------------------*/
@@ -1048,10 +1107,11 @@ input[type="submit"] {
     }
 
 
-.navbar-desktop .nav-items li:hover {
-    transform: scale(1.05);
-}
-.navbar-desktop .nav-items a.hidden-icons:hover,
+    .navbar-desktop .nav-items li:hover {
+        transform: scale(1.05);
+    }
+
+    .navbar-desktop .nav-items a.hidden-icons:hover,
     .navbar-desktop .nav-items a.hidden-icons.active {
         color: var(--main-color);
         font-weight: 700;
@@ -1178,4 +1238,6 @@ input[type="submit"] {
     background-position: center;
     border-radius: 50%;
 }
-}
+
+    }
+
