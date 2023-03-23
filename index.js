@@ -28,9 +28,6 @@ const deskIcons = desktop.querySelectorAll(".desk-icons");
 const deskNavbar = document.querySelector(".navbar-desktop");
 let lastScroll;
 
-//Text-area variables
-const newPostTextArea = document.querySelector("textarea");
-
 //Post variables
 const postButton = document.querySelector('button[type="submit"]');
 
@@ -39,6 +36,8 @@ const postContainer = document.querySelector(".post-container");
 
 
 /*----------------- EVENTS ----------------*/
+
+// showing / hidding menu on scroll
 window.addEventListener('scroll', function(){
   let scrollUp = window.pageYOffset || document.documentElement.scrollTop;
   if (scrollUp > lastScroll) {
@@ -104,9 +103,7 @@ postListCopy.forEach(post =>{
   dataId++;
 });
 dataId=0;
-likeStatusSwitch();
-
-//
+//adding the eventListener 
 const likeButtons = document.querySelectorAll(".like-btn");
 likeButtons.forEach((button) => {
   button.addEventListener("click", addLikeNumber);
@@ -114,21 +111,21 @@ likeButtons.forEach((button) => {
 });
 
 
-
 //Adding a Post and recreating the new posts feed
 postButton.addEventListener("click", function(e) {
   e.preventDefault();
-  postListCopy.unshift(addNewPost())
+  postListCopy.unshift(addNewPost());
   postListCopy.forEach(post =>{
     postCreate(post, dataId);
     dataId++;
   });
+  //adding the eventListener 
   const likeButtons = document.querySelectorAll(".like-btn");
   likeButtons.forEach((button) => {
     button.addEventListener("click", addLikeNumber);
     button.addEventListener("click", likeStatusSwitch);
   });
-
+  //reseting dataId variable
   dataId=0;
 });
 
@@ -156,4 +153,4 @@ function addLikeNumber(){
   });
 
   dataId=0;
-  }
+}
