@@ -39,6 +39,15 @@ const postContainer = document.querySelector(".post-container");
 
 
 /*----------------- EVENTS ----------------*/
+window.addEventListener('scroll', function(){
+  let scrollUp = window.pageYOffset || document.documentElement.scrollTop;
+  if (scrollUp > lastScroll) {
+    deskNavbar.style.top = '-150px'
+  } else {
+    deskNavbar.style.top = '0'
+  }
+  lastScroll = scrollUp
+});
 
 // opening the menu by clicking on the burger
 menuBurger.onclick = function () {
@@ -130,8 +139,8 @@ function addLikeNumber(){
       postListCopy[postDataId].likeStatus = true;
       postListCopy[postDataId].likeNumber++;
     }else if(postListCopy[postDataId].likeStatus === true){
-      postListCopy[postDataId].likeNumber--
       postListCopy[postDataId].likeStatus = false;
+      postListCopy[postDataId].likeNumber--;
     }
     postContainer.innerHTML ="";
 
