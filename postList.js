@@ -38,7 +38,7 @@ export const postList = [
         ],
         postDate : "10 mars 2023",
         likeStatus : false,
-        likeNumber : 11
+        likeNumber : 5
     },
     {
         postId : "3",
@@ -58,7 +58,7 @@ export const postList = [
         ],
         postDate : "10 mars 2023",
         likeStatus : false,
-        likeNumber : 11
+        likeNumber : 5
     },
     {
         postId : "4",
@@ -78,7 +78,7 @@ export const postList = [
         ],
         postDate : "10 mars 2023",
         likeStatus : false,
-        likeNumber : 11
+        likeNumber : 3
     },
    
 

@@ -45,7 +45,11 @@ export function postCreate(post, id) {
     const likeButton = document.createElement("img");
     likeButton.classList.add("like-btn");
     likeButton.dataset.id = id;
-    likeButton.src = "./images/heart-logo-off.png";
+    if (post.likeStatus === false){
+      likeButton.src = "./images/heart-logo-off.png";
+    }else{
+      likeButton.src = "./images/heart-logo.png";
+    }
     postButtons.appendChild(likeButton);
   
     const likeText = document.createElement("p");
