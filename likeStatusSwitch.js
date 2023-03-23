@@ -1,13 +1,8 @@
 export function likeStatusSwitch() {
-  //I select all the 'like buttons' and the 'like' text next to it.
+  //I select all the 'like buttons' and the 'like texts' next to it.
   const likeTexts = document.querySelectorAll(".like-text");
-  const likeButtons = document.querySelectorAll(".like-btn");
-
-  likeButtons.forEach((button) => {
-    button.addEventListener("click", likeStatusSwitch);
-  });
-  //Function to switch like button status (Clicked or uncliked)
-  function likeStatusSwitch() {
+  
+    console.log(this.dataset.id);
     //Checking if the icon url contains the word 'off' in it
     if (this.src.match("off")) {
       //if yes, I change the url of the icon for the "clicked version"
@@ -31,5 +26,5 @@ export function likeStatusSwitch() {
         }
       }
     }
-  }
+  
 }

@@ -44,8 +44,13 @@ export function postCreate(post, id) {
   
     const likeButton = document.createElement("img");
     likeButton.classList.add("like-btn");
+    //verifying the like status to show the correct icon
     likeButton.dataset.id = id;
-    likeButton.src = "./images/heart-logo-off.png";
+    if (post.likeStatus === false){
+      likeButton.src = "./images/heart-logo-off.png";
+    }else{
+      likeButton.src = "./images/heart-logo.png";
+    }
     postButtons.appendChild(likeButton);
   
     const likeText = document.createElement("p");
@@ -96,7 +101,8 @@ export function postCreate(post, id) {
     commentInput.dataset.autoresize = "";
     commentInput.placeholder = "Ecrire un commentaire";
     commentInputDiv.appendChild(commentInput);
-  
+
+    //adding the post comments 
     if (post.postComments !== null) {
       let commentId = 1;
       for (let i = 0; i < post.postComments.length; i++) {

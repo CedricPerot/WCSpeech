@@ -2,21 +2,15 @@ import {postList} from "./postList.js"
 import {postCreate} from "./postCreate.js"
 import {likeStatusSwitch} from "./likeStatusSwitch.js"
 import {addNewPost} from "./addNewPost.js"
+import {autoResizeArea} from "./autoResizeArea.js"
 
 /*----------------VARIABLES DECLARATION----------------*/
 
 //copie du tableau des posts
 const postListCopy = [...postList];
+
+//variable used to label posts
 let dataId = 0;
-//récupération de la date du jour
-// let postDate = new Date();// recupère un timer depuis 1970
-// let postDay = postDate.getDate();
-// let postMonth = postDate.getMonth(); //renvoie de 0 à 11
-// const monthsInLetters = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'];
-// let postYear = postDate.getFullYear();
-// let postFullDate = `${postDay} ${monthsInLetters[postMonth]} ${postYear}`;
-
-
 
 //Menu burger mobile variables
 const menuBurger = document.getElementById("menu-burger");
@@ -34,16 +28,26 @@ const deskIcons = desktop.querySelectorAll(".desk-icons");
 const deskNavbar = document.querySelector(".navbar-desktop");
 let lastScroll;
 
-//Text-area variables
-const newPostTextArea = document.querySelector("textarea");
-
 //Post variables
 const postButton = document.querySelector('button[type="submit"]');
+
+//post-container
+const postContainer = document.querySelector(".post-container");
 
 
 /*----------------- EVENTS ----------------*/
 
-console.log(postListCopy);
+// showing / hidding menu on scroll
+window.addEventListener('scroll', function(){
+  let scrollUp = window.pageYOffset || document.documentElement.scrollTop;
+  if (scrollUp > lastScroll) {
+    deskNavbar.style.top = '-150px'
+  } else {
+    deskNavbar.style.top = '0'
+  }
+  lastScroll = scrollUp
+});
+
 // opening the menu by clicking on the burger
 menuBurger.onclick = function () {
   menuContainer.classList.toggle("mobile-menu");
@@ -90,38 +94,63 @@ document.onclick = function clickOutside(e) {
   }
 };
 
-//Text-area auto-resize
-window.addEventListener("load", autoResizeArea);
+//Loading Textarea auto-resize function
+window.addEventListener("load", autoResizeArea());
 
-//créer le feed de post 
+//Create posts feed 
 postListCopy.forEach(post =>{
   postCreate(post, dataId);
   dataId++;
 });
-likeStatusSwitch();
+dataId=0;
+//adding the eventListener 
+const likeButtons = document.querySelectorAll(".like-btn");
+likeButtons.forEach((button) => {
+  button.addEventListener("click", addLikeNumber);
+  button.addEventListener("click", likeStatusSwitch);
+});
 
-//Create Post
+
+//Adding a Post and recreating the new posts feed
 postButton.addEventListener("click", function(e) {
   e.preventDefault();
-  postListCopy.unshift(addNewPost())
+  postListCopy.unshift(addNewPost());
   postListCopy.forEach(post =>{
     postCreate(post, dataId);
     dataId++;
   });
-  likeStatusSwitch();
+  //adding the eventListener 
+  const likeButtons = document.querySelectorAll(".like-btn");
+  likeButtons.forEach((button) => {
+    button.addEventListener("click", addLikeNumber);
+    button.addEventListener("click", likeStatusSwitch);
+  });
+  //reseting dataId variable
+  dataId=0;
 });
 
+//function to increment like counter when liking
+function addLikeNumber(){
+    let postDataId = this.dataset.id;
+    if (postListCopy[postDataId].likeStatus === false){
+      postListCopy[postDataId].likeStatus = true;
+      postListCopy[postDataId].likeNumber++;
+    }else if(postListCopy[postDataId].likeStatus === true){
+      postListCopy[postDataId].likeStatus = false;
+      postListCopy[postDataId].likeNumber--;
+    }
+    postContainer.innerHTML ="";
 
-
-/*----------------FUNCTIONS----------------*/
-
-//Function Text-area auto-resize
-function autoResizeArea() {
-  document.querySelectorAll("[data-autoresize]").forEach(function (element) {
-    let offset = element.offsetHeight - element.clientHeight; // calcule la hauteur des éventuels border et scroll bar
-    element.addEventListener("input", function (e) {
-      e.target.style.height = "auto";
-      e.target.style.height = e.target.scrollHeight + offset + "px"; // définit la hauteur de l'élément selon la hauteur du contenu (scrollHeight) + les éventuels border et nav bar calculés précédement
+   //Create posts feed 
+    postListCopy.forEach(post =>{
+      postCreate(post, dataId);
+      dataId++;
     });
+    const likeButtons = document.querySelectorAll(".like-btn");
+    likeButtons.forEach((button) => {
+    button.addEventListener("click", addLikeNumber);
+    button.addEventListener("click", likeStatusSwitch);
   });
+
+  dataId=0;
 }
