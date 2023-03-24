@@ -836,7 +836,6 @@ input[type="submit"] {
     }
 
     /* PROFILE PAGE */
-    .profile-card { margin-top: 7em;}
     .profile-card-header {
         height: 18em;
     }
@@ -924,7 +923,7 @@ input[type="submit"] {
 /* tablettes et au dessus*/
 @media screen and (min-width: 992px) {
 
-    .notifications-container, .feed-container {
+    .notifications-container, .feed-container, .profile-container {
         margin-top: 7em;
     }
     /* suppression des éléments mobile */
