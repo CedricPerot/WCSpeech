@@ -57,6 +57,11 @@ export function postCreate(post, id) {
     likeText.classList.add("like-text");
     likeText.dataset.id = id;
     likeText.innerText = "like";
+    if (post.likeStatus === false){
+      likeText.style.color = "rgb(173, 170, 189, 1)"
+    }else{
+      likeText.style.color = "rgba(255, 27, 82)";
+    }
     postButtons.appendChild(likeText);
   
     const shareButton = document.createElement("img");
