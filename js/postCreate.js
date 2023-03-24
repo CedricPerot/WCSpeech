@@ -101,6 +101,7 @@ export function postCreate(post, id) {
   
     const commentInput = document.createElement("input");
     commentInput.classList.add("comment-input");
+    commentInput.dataset.id = id;
     commentInput.type = "text";
     commentInput.name = "comment-input";
     commentInput.dataset.autoresize = "";
@@ -130,6 +131,9 @@ export function postCreate(post, id) {
   
         commentId++;
       }
+    }
+    else{
+      //instancier un tableau vide
     }
   }
   

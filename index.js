@@ -1,8 +1,8 @@
-import {postList} from "./postList.js"
-import {postCreate} from "./postCreate.js"
-import {likeStatusSwitch} from "./likeStatusSwitch.js"
-import {addNewPost} from "./addNewPost.js"
-import {autoResizeArea} from "./autoResizeArea.js"
+import {postList} from "./js/postList.js"
+import {postCreate} from "./js/postCreate.js"
+import {likeStatusSwitch} from "./js/likeStatusSwitch.js"
+import {addNewPost} from "./js/addNewPost.js"
+import {autoResizeArea} from "./js/autoResizeArea.js"
 
 /*----------------VARIABLES DECLARATION----------------*/
 
@@ -33,6 +33,7 @@ const postButton = document.querySelector('button[type="submit"]');
 
 //post-container
 const postContainer = document.querySelector(".post-container");
+
 
 
 /*----------------- EVENTS ----------------*/
@@ -109,6 +110,11 @@ likeButtons.forEach((button) => {
   button.addEventListener("click", addLikeNumber);
   button.addEventListener("click", likeStatusSwitch);
 });
+//comment inputs
+const commentInputs = document.querySelectorAll(".comment-input");
+commentInputs.forEach(input => {
+  input.addEventListener("change", addComment);
+}) 
 
 
 //Adding a Post and recreating the new posts feed
@@ -127,6 +133,12 @@ postButton.addEventListener("click", function(e) {
   });
   //reseting dataId variable
   dataId=0;
+
+  //comment inputs
+  const commentInputs = document.querySelectorAll(".comment-input");
+  commentInputs.forEach(input => {
+    input.addEventListener("change", addComment);
+  }) 
 });
 
 //function to increment like counter when liking
@@ -139,6 +151,37 @@ function addLikeNumber(){
       postListCopy[postDataId].likeStatus = false;
       postListCopy[postDataId].likeNumber--;
     }
+    //resetting the feed container
+    postContainer.innerHTML ="";
+
+    //Create posts feed 
+    postListCopy.forEach(post =>{
+      postCreate(post, dataId);
+      dataId++;
+    });
+    const likeButtons = document.querySelectorAll(".like-btn");
+    likeButtons.forEach((button) => {
+    button.addEventListener("click", addLikeNumber);
+    button.addEventListener("click", likeStatusSwitch);
+    });
+     dataId=0;
+
+    //comment inputs
+    const commentInputs = document.querySelectorAll(".comment-input");
+    commentInputs.forEach(input => {
+      input.addEventListener("change", addComment);
+    }); 
+}
+
+function addComment(e){
+    e.preventDefault();
+    let postDataId = this.dataset.id;
+    let postComment = commentInputs[postDataId].value;
+    let post ={};
+    post.commentFirst = 'olive';
+    post.commentContent = postComment;
+    postListCopy[postDataId].postComments.unshift(post);
+    //resetting the feed container
     postContainer.innerHTML ="";
 
    //Create posts feed 
@@ -151,6 +194,10 @@ function addLikeNumber(){
     button.addEventListener("click", addLikeNumber);
     button.addEventListener("click", likeStatusSwitch);
   });
-
   dataId=0;
+
+  //comment inputs
+  commentInputs.forEach(input => {
+    input.addEventListener("change", addComment);
+  }); 
 }
