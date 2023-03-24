@@ -906,6 +906,7 @@ input[type="submit"] {
         flex-direction: row;
         gap: 1.5em;
     }
+    .visible { top: 40em; }
 
     /* NOTIFICATIONS PAGE*/
     .notifications-container {
@@ -1240,5 +1241,5 @@ input[type="submit"] {
     border-radius: 50%;
 }
 
-    }
-
+.visible { top: 30em; }
+}
