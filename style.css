@@ -515,7 +515,7 @@ header {
     padding: 1em;
     max-width: 1024px;
     margin: auto;
-    margin-top: 5em;
+    margin-top: 12em;
 }
 
 .profile-card {
@@ -606,6 +606,7 @@ header {
 
 .visible {
     display: block;
+    top: 43em;
 }
 
 .close {
@@ -783,6 +784,7 @@ input[type="submit"] {
     padding: 1rem;
     max-width: 1024px;
     margin: auto;
+    margin-top: 12em;
 }
 
 .notifications-feed {
