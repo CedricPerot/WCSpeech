@@ -132,8 +132,5 @@ export function postCreate(post, id) {
         commentId++;
       }
     }
-    else{
-      //instancier un tableau vide
-    }
   }
   

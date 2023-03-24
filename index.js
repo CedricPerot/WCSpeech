@@ -180,7 +180,7 @@ function addComment(e){
     let post ={};
     post.commentFirst = 'olive';
     post.commentContent = postComment;
-    postListCopy[postDataId].postComments.unshift(post);
+    postListCopy[postDataId].postComments.unshift(post,);
     //resetting the feed container
     postContainer.innerHTML ="";
 
