@@ -1,15 +1,16 @@
-import {postList} from "./postList.js"
-import {postCreate} from "./postCreate.js"
-import {likeStatusSwitch} from "./likeStatusSwitch.js"
-import {addNewPost} from "./addNewPost.js"
-import {autoResizeArea} from "./autoResizeArea.js"
+import {postList} from "./js/postList.js"
+import {postCreate} from "./js/postCreate.js"
+// import {likeStatusSwitch} from "./js/likeStatusSwitch.js"
+import {addNewPost} from "./js/addNewPost.js"
+import {autoResizeArea} from "./js/autoResizeArea.js"
+import {postFeedCreate} from "./js/postFeedCreate.js"
 
 /*----------------VARIABLES DECLARATION----------------*/
 
-//copie du tableau des posts
+//post array copy
 const postListCopy = [...postList];
 
-//variable used to label posts
+//variable to label each post
 let dataId = 0;
 
 //Menu burger mobile variables
@@ -33,6 +34,7 @@ const postButton = document.querySelector('button[type="submit"]');
 
 //post-container
 const postContainer = document.querySelector(".post-container");
+
 
 
 /*----------------- EVENTS ----------------*/
@@ -97,40 +99,21 @@ document.onclick = function clickOutside(e) {
 //Loading Textarea auto-resize function
 window.addEventListener("load", autoResizeArea());
 
-//Create posts feed 
-postListCopy.forEach(post =>{
-  postCreate(post, dataId);
-  dataId++;
-});
-dataId=0;
-//adding the eventListener 
-const likeButtons = document.querySelectorAll(".like-btn");
-likeButtons.forEach((button) => {
-  button.addEventListener("click", addLikeNumber);
-  button.addEventListener("click", likeStatusSwitch);
-});
+//----- Create the post Feed -----
+postFeedCreate(postListCopy);
 
 
-//Adding a Post and recreating the new posts feed
+//-------- Adding New Post --------
 postButton.addEventListener("click", function(e) {
   e.preventDefault();
-  postListCopy.unshift(addNewPost());
-  postListCopy.forEach(post =>{
-    postCreate(post, dataId);
-    dataId++;
-  });
-  //adding the eventListener 
-  const likeButtons = document.querySelectorAll(".like-btn");
-  likeButtons.forEach((button) => {
-    button.addEventListener("click", addLikeNumber);
-    button.addEventListener("click", likeStatusSwitch);
-  });
-  //reseting dataId variable
-  dataId=0;
+  //creating the new post
+  postListCopy.unshift(addNewPost(dataId));
+  //Create posts Feed
+  postFeedCreate(postListCopy);
 });
 
-//function to increment like counter when liking
-function addLikeNumber(){
+//----- Increment like counter when liking -----
+export function addLikeNumber(){
     let postDataId = this.dataset.id;
     if (postListCopy[postDataId].likeStatus === false){
       postListCopy[postDataId].likeStatus = true;
@@ -139,18 +122,28 @@ function addLikeNumber(){
       postListCopy[postDataId].likeStatus = false;
       postListCopy[postDataId].likeNumber--;
     }
-    postContainer.innerHTML ="";
+    //Create posts feed 
+    postFeedCreate(postListCopy);
+}
 
-   //Create posts feed 
-    postListCopy.forEach(post =>{
-      postCreate(post, dataId);
-      dataId++;
-    });
-    const likeButtons = document.querySelectorAll(".like-btn");
-    likeButtons.forEach((button) => {
-    button.addEventListener("click", addLikeNumber);
-    button.addEventListener("click", likeStatusSwitch);
-  });
+//----- Add a comment to a post -----
+export function addComment(e){
+  e.preventDefault();
+  const commentInputs = document.querySelectorAll(".comment-input");
+  //Get the post data-id
+  let postDataId = this.dataset.id;
+  console.log(postDataId)
+  //Create the comment object
+  let postComment = commentInputs[postDataId].value;
+  console.log(postComment);
+  let post ={};
+  post.commentFirst = 'olive';
+  post.commentContent = postComment;
+  console.log(post);
+  //Push the object in the post array
+  postListCopy[postDataId].postComments.unshift(post);
+  console.log(postListCopy[postDataId]);
 
-  dataId=0;
+  //Create posts feed 
+  postFeedCreate(postListCopy);
 }
