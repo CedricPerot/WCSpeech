@@ -6,10 +6,10 @@ import {autoResizeArea} from "./js/autoResizeArea.js"
 
 /*----------------VARIABLES DECLARATION----------------*/
 
-//copie du tableau des posts
+//post array copy
 const postListCopy = [...postList];
 
-//variable used to label posts
+//variable to label each post
 let dataId = 0;
 
 //Menu burger mobile variables
@@ -120,7 +120,7 @@ commentInputs.forEach(input => {
 //Adding a Post and recreating the new posts feed
 postButton.addEventListener("click", function(e) {
   e.preventDefault();
-  postListCopy.unshift(addNewPost());
+  postListCopy.unshift(addNewPost(dataId));
   postListCopy.forEach(post =>{
     postCreate(post, dataId);
     dataId++;

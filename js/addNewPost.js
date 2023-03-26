@@ -1,13 +1,13 @@
 import{getTheDate} from "./getTheDate.js"
 
-export function addNewPost(){
+export function addNewPost(dataId){
 //Text-area variable
 const newPostTextArea = document.querySelector("textarea");
 //post-container
 const postContainer = document.querySelector(".post-container");
 
     const post = {
-      postId : "5",
+      postId : dataId,
       first : "Olive",
       last : "Gomez",
       picture : "./images/profile-pictures/Olive.jpg",
