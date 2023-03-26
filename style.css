@@ -515,7 +515,7 @@ header {
     padding: 1em;
     max-width: 1024px;
     margin: auto;
-    margin-top: 5em;
+    margin-top: 12em;
 }
 
 .profile-card {
@@ -606,6 +606,7 @@ header {
 
 .visible {
     display: block;
+    top: 43em;
 }
 
 .close {
@@ -783,6 +784,7 @@ input[type="submit"] {
     padding: 1rem;
     max-width: 1024px;
     margin: auto;
+    margin-top: 12em;
 }
 
 .notifications-feed {
@@ -834,7 +836,6 @@ input[type="submit"] {
     }
 
     /* PROFILE PAGE */
-    .profile-card { margin-top: 7em;}
     .profile-card-header {
         height: 18em;
     }
@@ -905,6 +906,7 @@ input[type="submit"] {
         flex-direction: row;
         gap: 1.5em;
     }
+    .visible { top: 40em; }
 
     /* NOTIFICATIONS PAGE*/
     .notifications-container {
@@ -922,7 +924,7 @@ input[type="submit"] {
 /* tablettes et au dessus*/
 @media screen and (min-width: 992px) {
 
-    .notifications-container, .feed-container {
+    .notifications-container, .feed-container, .profile-container {
         margin-top: 7em;
     }
     /* suppression des éléments mobile */
@@ -1239,5 +1241,5 @@ input[type="submit"] {
     border-radius: 50%;
 }
 
-    }
-
+.visible { top: 30em; }
+}
